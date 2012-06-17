@@ -49,6 +49,8 @@ function init (dir, input, config, cb) {
         pkg = unParsePeople(pkg)
         // no need for the readme now.
         delete pkg.readme
+        // really don't want to have this lying around in the file
+        delete pkg._id
         var d = JSON.stringify(pkg, null, 2) + '\n'
         console.log('About to write to %s:\n\n%s\n', package, d)
         read({prompt:'Is this ok? ', default: 'yes'}, function (er, ok) {

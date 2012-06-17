@@ -15,8 +15,7 @@ tap.test('the basics', function (t) {
         scripts: { test: 'make test' },
         main: 'main.js',
         config: { foo: 'bar' },
-        package: {},
-        _id: 'the-name@1.2.5' }
+        package: {} }
     t.same(data, expect)
     t.end()
   })

@@ -11,7 +11,6 @@
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
   "license": "BSD",
-  "_id": "init-package-json@0.0.0",
   "description": "A node module to get your node module started",
   "dependencies": {
     "promzard": "~0.1.5",
