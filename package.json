@@ -14,11 +14,14 @@
   "_id": "init-package-json@0.0.0",
   "description": "A node module to get your node module started",
   "dependencies": {
-    "glob": "~3.1.10",
-    "promzard": "~0.1.4"
+    "promzard": "~0.1.5",
+    "read": "~0.1.0",
+    "read-package-json": "0.0.6",
+    "semver": "~1.0.14"
   },
   "devDependencies": {
-    "tap": "~0.2.5"
+    "tap": "~0.2.5",
+    "rimraf": "~2.0.2"
   },
   "keywords": [
     "init",
