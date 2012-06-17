@@ -1,0 +1,33 @@
+{
+  "name": "init-package-json",
+  "version": "0.0.0",
+  "main": "init-package-json.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isaacs/init-package-json"
+  },
+  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
+  "license": "BSD",
+  "_id": "init-package-json@0.0.0",
+  "description": "A node module to get your node module started",
+  "dependencies": {
+    "glob": "~3.1.10",
+    "promzard": "~0.1.4"
+  },
+  "devDependencies": {
+    "tap": "~0.2.5"
+  },
+  "keywords": [
+    "init",
+    "package.json",
+    "package",
+    "helper",
+    "wizard",
+    "wizerd",
+    "prompt",
+    "start"
+  ]
+}
