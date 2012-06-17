@@ -22,7 +22,13 @@ function init (dir, input, config, cb) {
   var pkg
   var ctx = {}
 
+  var es = readJson.extraSet
+  readJson.extraSet = es.filter(function (fn) {
+    return fn.name !== 'authors' && fn.name !== 'mans'
+  })
   readJson(package, function (er, d) {
+    readJson.extraSet = es
+
     if (er) pkg = {}
     else pkg = d
 
@@ -44,7 +50,15 @@ function init (dir, input, config, cb) {
       Object.keys(data).forEach(function (k) {
         if (data[k] !== undefined && data[k] !== null) pkg[k] = data[k]
       })
+
+      // only do a few of these.
+      // no need for mans or contributors if they're in the files
+      var es = readJson.extraSet
+      readJson.extraSet = es.filter(function (fn) {
+        return fn.name !== 'authors' && fn.name !== 'mans'
+      })
       readJson.extras(package, pkg, function (er, pkg) {
+        readJson.extraSet = es
         if (er) return cb(er, pkg)
         pkg = unParsePeople(pkg)
         // no need for the readme now.
