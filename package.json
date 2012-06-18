@@ -1,6 +1,6 @@
 {
   "name": "init-package-json",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "init-package-json.js",
   "scripts": {
     "test": "tap test/*.js"
@@ -15,7 +15,7 @@
   "dependencies": {
     "promzard": "~0.1.5",
     "read": "~0.1.0",
-    "read-package-json": "0.0.6",
+    "read-package-json": "0",
     "semver": "~1.0.14"
   },
   "devDependencies": {
