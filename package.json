@@ -13,8 +13,8 @@
   "license": "BSD",
   "description": "A node module to get your node module started",
   "dependencies": {
-    "promzard": "~0.1.5",
-    "read": "~0.1.0",
+    "promzard": "~0.2.0",
+    "read": "~1.0.1",
     "read-package-json": "0",
     "semver": "~1.0.14"
   },
