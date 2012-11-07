@@ -16,6 +16,7 @@ function readDeps (test) { return function (cb) {
     if (er) return cb()
     var deps = {}
     var n = dir.length
+    if (n === 0) return cb(null, deps)
     dir.forEach(function (d) {
       if (d.match(/^\./)) return next()
       if (test !== isTestPkg(d))
