@@ -167,11 +167,11 @@ if (!package.keywords) {
 }
 
 if (!package.author) {
-  exports.author = config['init.author.name']
+  exports.author = config.get('init.author.name')
   ? {
-      "name" : config['init.author.name'],
-      "email" : config['init.author.email'],
-      "url" : config['init.author.url']
+      "name" : config.get('init.author.name'),
+      "email" : config.get('init.author.email'),
+      "url" : config.get('init.author.url')
     }
   : prompt('author')
 }
