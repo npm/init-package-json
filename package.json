@@ -1,6 +1,6 @@
 {
   "name": "init-package-json",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "init-package-json.js",
   "scripts": {
     "test": "tap test/*.js"
