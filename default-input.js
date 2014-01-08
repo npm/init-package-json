@@ -178,4 +178,4 @@ if (!package.author) {
 
 exports.license = prompt('license', package.license ||
                          config.get('init.license') ||
-                         'BSD-2-Clause')
+                         'ISC')
