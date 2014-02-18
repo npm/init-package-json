@@ -10,7 +10,7 @@
     "url": "git://github.com/isaacs/init-package-json"
   },
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
-  "license": "BSD",
+  "license": "ISC",
   "description": "A node module to get your node module started",
   "dependencies": {
     "promzard": "~0.2.0",
