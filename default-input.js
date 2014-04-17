@@ -28,7 +28,7 @@ function readDeps (test) { return function (cb) {
         try { p = JSON.parse(p) }
         catch (e) { return next() }
         if (!p.version) return next()
-        deps[d] = '^' + p.version
+        deps[d] = config.get('save-prefix') + p.version
         return next()
       })
     })
