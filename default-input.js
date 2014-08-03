@@ -1,6 +1,7 @@
 var fs = require('fs')
 var path = require('path')
 var glob = require('glob')
+var pi = require('./process-input.js')
 
 // more popular packages should go here, maybe?
 function isTestPkg (p) {
@@ -49,20 +50,7 @@ if (!package.main) {
   exports.main = function (cb) {
     fs.readdir(dirname, function (er, f) {
       if (er) f = []
-
-      f = f.filter(function (f) {
-        return f.match(/\.js$/)
-      })
-
-      if (f.indexOf('index.js') !== -1)
-        f = 'index.js'
-      else if (f.indexOf('main.js') !== -1)
-        f = 'main.js'
-      else if (f.indexOf(basename + '.js') !== -1)
-        f = basename + '.js'
-      else
-        f = f[0]
-
+      f = pi.processMain(f)
       return cb(null, prompt('entry point', f || 'index.js'))
     })
   }
@@ -141,16 +129,7 @@ if (!package.repository) {
     fs.readFile('.git/config', 'utf8', function (er, gconf) {
       if (er || !gconf) return cb(null, prompt('git repository'))
 
-      gconf = gconf.split(/\r?\n/)
-      var i = gconf.indexOf('[remote "origin"]')
-      if (i !== -1) {
-        var u = gconf[i + 1]
-        if (!u.match(/^\s*url =/)) u = gconf[i + 2]
-        if (!u.match(/^\s*url =/)) u = null
-        else u = u.replace(/^\s*url = /, '')
-      }
-      if (u && u.match(/^git@github.com:/))
-        u = u.replace(/^git@github.com:/, 'https://github.com/')
+      var u = pi.processRepository(gconf)
 
       return cb(null, prompt('git repository', u))
     })
@@ -158,12 +137,7 @@ if (!package.repository) {
 }
 
 if (!package.keywords) {
-  exports.keywords = prompt('keywords', function (s) {
-    if (!s) return undefined
-    if (Array.isArray(s)) s = s.join(' ')
-    if (typeof s !== 'string') return s
-    return s.split(/[\s,]+/)
-  })
+  exports.keywords = prompt('keywords', pi.processKeywords)
 }
 
 if (!package.author) {
