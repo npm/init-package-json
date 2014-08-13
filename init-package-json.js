@@ -35,7 +35,9 @@ function init (dir, input, config, cb) {
   var package = path.resolve(dir, 'package.json')
   input = path.resolve(input)
   var pkg
-  var ctx = {}
+  var ctx = {
+    yes: !!(config.get('yes') || config.get('y'))
+  }
 
   var es = readJson.extraSet
   readJson.extraSet = es.filter(function (fn) {
@@ -55,7 +57,6 @@ function init (dir, input, config, cb) {
 
     ctx.package = pkg
     ctx.config = config || {}
-    ctx.yes = !!(ctx.config.get('yes') || ctx.config.get('y'))
 
     // make sure that the input is valid.
     // if not, use the default
