@@ -17,7 +17,7 @@
     "promzard": "~0.2.0",
     "read": "~1.0.1",
     "read-package-json": "1",
-    "semver": "2.x || 3.x"
+    "semver": "2.x || 3.x || 4"
   },
   "devDependencies": {
     "tap": "~0.2.5",
