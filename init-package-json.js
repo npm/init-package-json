@@ -36,7 +36,12 @@ function init (dir, input, config, cb) {
   input = path.resolve(input)
   var pkg
   var ctx = {
-    yes: !!(config.get('yes') || config.get('y'))
+    yes: !!(
+      config.get('force')
+      || config.get('f')
+      || config.get('yes')
+      || config.get('y')
+    )
   }
 
   var es = readJson.extraSet
