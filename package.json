@@ -20,8 +20,9 @@
     "semver": "2.x || 3.x || 4"
   },
   "devDependencies": {
-    "tap": "~0.2.5",
-    "rimraf": "~2.0.2"
+    "npm": "^2.1.4",
+    "rimraf": "^2.1.4",
+    "tap": "^0.4.13"
   },
   "keywords": [
     "init",
