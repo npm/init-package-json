@@ -1,6 +1,7 @@
 var fs = require('fs')
-var path = require('path')
 var glob = require('glob')
+var path = require('path')
+var validateName = require("validate-npm-package-name")
 
 // more popular packages should go here, maybe?
 function isTestPkg (p) {
@@ -42,7 +43,13 @@ var name = package.name || basename
 if (config.get('scope')) {
   name = '@' + config.get('scope') + '/' + name
 }
-exports.name = yes ? name : prompt('name', name)
+exports.name =  yes ? name : prompt('name', name, function (data) {
+  var its = validateName(data)
+  if (its.valid) return data
+  var er = new Error('Sorry, ' + its.errors.join(' and ') + '.')
+  er.notValid = true
+  return er
+})
 
 var version = package.version ||
               config.get('init.version') ||
