@@ -39,8 +39,10 @@ function readDeps (test) { return function (cb) {
 }}
 
 var name = package.name || basename
-if (config.get('scope')) {
-  name = '@' + config.get('scope') + '/' + name
+var scope = config.get('scope')
+if (scope) {
+  if (scope.charAt(0) !== '@') scope = '@' + scope
+  name = scope + '/' + name
 }
 exports.name = yes ? name : prompt('name', name)
 
