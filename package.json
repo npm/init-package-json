@@ -14,7 +14,7 @@
   "description": "A node module to get your node module started",
   "dependencies": {
     "glob": "^4.0.2",
-    "promzard": "~0.2.0",
+    "promzard": "^0.3.0",
     "read": "~1.0.1",
     "read-package-json": "1",
     "semver": "2.x || 3.x || 4",
