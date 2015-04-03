@@ -18,7 +18,7 @@
     "read": "~1.0.1",
     "read-package-json": "1",
     "semver": "2.x || 3.x || 4",
-    "validate-npm-package-name": "^1.2.0"
+    "validate-npm-package-name": "^2.0.1"
   },
   "devDependencies": {
     "npm": "^2.1.4",
