@@ -21,9 +21,9 @@
     "validate-npm-package-name": "^2.0.1"
   },
   "devDependencies": {
-    "npm": "^2.1.4",
+    "npm": "^2",
     "rimraf": "^2.1.4",
-    "tap": "^0.4.13"
+    "tap": "^0.7.1"
   },
   "keywords": [
     "init",
