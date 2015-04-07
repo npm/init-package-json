@@ -16,7 +16,7 @@
     "glob": "^5.0.3",
     "promzard": "^0.3.0",
     "read": "~1.0.1",
-    "read-package-json": "1",
+    "read-package-json": "1 || 2",
     "semver": "2.x || 3.x || 4",
     "validate-npm-package-name": "^2.0.1"
   },
