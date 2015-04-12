@@ -202,7 +202,7 @@ if (!package.author) {
       "url" : config.get('init.author.url') ||
               config.get('init-author-url')
     }
-  : prompt('author')
+  : yes ? '' : prompt('author')
 }
 
 var license = package.license ||
