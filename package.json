@@ -14,6 +14,7 @@
   "description": "A node module to get your node module started",
   "dependencies": {
     "glob": "^5.0.3",
+    "npm-package-arg": "^4.0.0",
     "promzard": "^0.3.0",
     "read": "~1.0.1",
     "read-package-json": "1 || 2",
