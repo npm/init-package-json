@@ -54,7 +54,7 @@ if (scope) {
 exports.name =  yes ? name : prompt('name', name, function (data) {
   var its = validateName(data)
   if (its.validForNewPackages) return data
-  var errors = [].concat(its.errors || []).concat(its.warnings || [])
+  var errors = (its.errors || []).concat(its.warnings || [])
   var er = new Error('Sorry, ' + errors.join(' and ') + '.')
   er.notValid = true
   return er
