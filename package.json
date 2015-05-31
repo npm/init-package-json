@@ -25,7 +25,7 @@
   "devDependencies": {
     "npm": "^2",
     "rimraf": "^2.1.4",
-    "tap": "^0.7.1"
+    "tap": "^1.2.0"
   },
   "keywords": [
     "init",
