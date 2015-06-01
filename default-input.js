@@ -72,7 +72,6 @@ exports.version = yes ?
     if (semver.valid(version)) return version
     var er = new Error('Invalid version: "' + version + '"')
     er.notValid = true
-    er.again = true
     return er
   })
 
