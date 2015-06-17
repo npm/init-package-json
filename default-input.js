@@ -12,7 +12,7 @@ function isTestPkg (p) {
 }
 
 function niceName (n) {
-  return n.replace(/^node-|[.-]js$/g, '')
+  return n.replace(/^node-|[.-]js$/g, '').toLowerCase()
 }
 
 function readDeps (test) { return function (cb) {
