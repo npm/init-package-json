@@ -19,7 +19,7 @@
     "read": "~1.0.1",
     "read-package-json": "1 || 2",
     "semver": "2.x || 3.x || 4",
-    "validate-npm-package-license": "1.0.0-prerelease-2",
+    "validate-npm-package-license": "^2.0.0",
     "validate-npm-package-name": "^2.0.1"
   },
   "devDependencies": {
