@@ -97,7 +97,10 @@ if (!package.main) {
       else
         f = f[0]
 
-      var index = f || 'index.js'
+      var index = f ||
+                  config.get('init.main') ||
+                  config.get('init-main') ||
+                  'index.js' 
       return cb(null, yes ? index : prompt('entry point', index))
     })
   }
