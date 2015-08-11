@@ -40,8 +40,6 @@ function init (dir, input, config, cb) {
     }
   }
 
-  var printf = config.get('silent') ? Function.prototype : console.log
-
   var package = path.resolve(dir, 'package.json')
   input = path.resolve(input)
   var pkg
@@ -108,17 +106,19 @@ function init (dir, input, config, cb) {
         var d = JSON.stringify(pkg, null, 2) + '\n'
         function write (yes) {
           fs.writeFile(package, d, 'utf8', function (er) {
-            if (!er && yes) printf('Wrote to %s:\n\n%s\n', package, d)
+            if (!er && yes && !config.get('silent')) {
+              console.log('Wrote to %s:\n\n%s\n', package, d)
+            }
             return cb(er, pkg)
           })
         }
         if (ctx.yes) {
           return write(true)
         }
-        printf('About to write to %s:\n\n%s\n', package, d)
+        console.log('About to write to %s:\n\n%s\n', package, d)
         read({prompt:'Is this ok? ', default: 'yes'}, function (er, ok) {
           if (!ok || ok.toLowerCase().charAt(0) !== 'y') {
-            printf('Aborted.')
+            console.log('Aborted.')
           } else {
             return write()
           }
