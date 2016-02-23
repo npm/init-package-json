@@ -129,6 +129,7 @@ exports.directories = function (cb) {
         case 'test': case 'tests': return res.test = d
         case 'doc': case 'docs': return res.doc = d
         case 'man': return res.man = d
+        case 'lib': return res.lib = d
       }
     })
     if (Object.keys(res).length === 0) res = undefined
