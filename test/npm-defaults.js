@@ -9,6 +9,9 @@ var EXPECTED = {
   name: 'test',
   version: '3.1.4',
   description: '',
+  directories: {
+    lib: 'lib'
+  },
   main: 'basic.js',
   scripts: {
     test: 'echo "Error: no test specified" && exit 1'
