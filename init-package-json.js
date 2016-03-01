@@ -23,11 +23,13 @@ function yes (conf) {
 }
 
 function init (dir, input, config, cb) {
-  if (typeof config === 'function')
-    cb = config, config = {}
+  if (typeof config === 'function') {
+    cb = config
+    config = {}
+  }
 
   // accept either a plain-jane object, or a config object
-  // with a "get" method.
+  // with a 'get' method.
   if (typeof config.get !== 'function') {
     var data = config
     config = {
@@ -40,7 +42,7 @@ function init (dir, input, config, cb) {
     }
   }
 
-  var package = path.resolve(dir, 'package.json')
+  var p = path.resolve(dir, 'package.json')
   input = path.resolve(input)
   var pkg
   var ctx = { yes: yes(config) }
@@ -49,17 +51,16 @@ function init (dir, input, config, cb) {
   readJson.extraSet = es.filter(function (fn) {
     return fn.name !== 'authors' && fn.name !== 'mans'
   })
-  readJson(package, function (er, d) {
+  readJson(p, function (er, d) {
     readJson.extraSet = es
 
     if (er) pkg = {}
     else pkg = d
 
-    ctx.filename = package
-    ctx.dirname = path.dirname(package)
+    ctx.filename = p
+    ctx.dirname = path.dirname(p)
     ctx.basename = path.basename(ctx.dirname)
-    if (!pkg.version || !semver.valid(pkg.version))
-      delete pkg.version
+    if (!pkg.version || !semver.valid(pkg.version)) delete pkg.version
 
     ctx.package = pkg
     ctx.config = config || {}
@@ -80,7 +81,7 @@ function init (dir, input, config, cb) {
       readJson.extraSet = es.filter(function (fn) {
         return fn.name !== 'authors' && fn.name !== 'mans'
       })
-      readJson.extras(package, pkg, function (er, pkg) {
+      readJson.extras(p, pkg, function (er, pkg) {
         readJson.extraSet = es
         if (er) return cb(er, pkg)
         pkg = unParsePeople(pkg)
@@ -95,19 +96,17 @@ function init (dir, input, config, cb) {
         delete pkg.gitHead
 
         // if the repo is empty, remove it.
-        if (!pkg.repository)
-          delete pkg.repository
+        if (!pkg.repository) delete pkg.repository
 
         // readJson filters out empty descriptions, but init-package-json
         // traditionally leaves them alone
-        if (!pkg.description)
-          pkg.description = data.description
+        if (!pkg.description) pkg.description = data.description
 
         var d = JSON.stringify(pkg, null, 2) + '\n'
         function write (yes) {
-          fs.writeFile(package, d, 'utf8', function (er) {
+          fs.writeFile(p, d, 'utf8', function (er) {
             if (!er && yes && !config.get('silent')) {
-              console.log('Wrote to %s:\n\n%s\n', package, d)
+              console.log('Wrote to %s:\n\n%s\n', p, d)
             }
             return cb(er, pkg)
           })
@@ -115,8 +114,8 @@ function init (dir, input, config, cb) {
         if (ctx.yes) {
           return write(true)
         }
-        console.log('About to write to %s:\n\n%s\n', package, d)
-        read({prompt:'Is this ok? ', default: 'yes'}, function (er, ok) {
+        console.log('About to write to %s:\n\n%s\n', p, d)
+        read({ prompt: 'Is this ok? ', default: 'yes' }, function (er, ok) {
           if (!ok || ok.toLowerCase().charAt(0) !== 'y') {
             console.log('Aborted.')
           } else {
@@ -126,26 +125,27 @@ function init (dir, input, config, cb) {
       })
     })
   })
-
 }
 
 // turn the objects into somewhat more humane strings.
 function unParsePeople (data) {
-  if (data.author) data.author = unParsePerson(data.author)
-  ;["maintainers", "contributors"].forEach(function (set) {
-    if (!Array.isArray(data[set])) return;
+  if (data.author) {
+    data.author = unParsePerson(data.author)
+  }
+  ;['maintainers', 'contributors'].forEach(function (set) {
+    if (!Array.isArray(data[set])) return
     data[set] = data[set].map(unParsePerson)
   })
   return data
 }
 
 function unParsePerson (person) {
-  if (typeof person === "string") return person
-  var name = person.name || ""
+  if (typeof person === 'string') return person
+  var name = person.name || ''
   var u = person.url || person.web
-  var url = u ? (" ("+u+")") : ""
+  var url = u ? (' (' + u + ')') : ''
   var e = person.email || person.mail
-  var email = e ? (" <"+e+">") : ""
-  return name+email+url
+  var email = e ? (' <' + e + '>') : ''
+  return name + email + url
 }
 
