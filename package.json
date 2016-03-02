@@ -3,6 +3,7 @@
   "version": "1.9.3",
   "main": "init-package-json.js",
   "scripts": {
+    "pretest": "standard init-package-json.js",
     "test": "tap test/*.js"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "devDependencies": {
     "npm": "^2",
     "rimraf": "^2.1.4",
+    "standard": "^6.0.7",
     "tap": "^1.2.0"
   },
   "keywords": [
