@@ -20,7 +20,7 @@
     "read-package-json": "1 || 2",
     "semver": "2.x || 3.x || 4 || 5",
     "validate-npm-package-license": "^3.0.1",
-    "validate-npm-package-name": "^2.0.1"
+    "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
