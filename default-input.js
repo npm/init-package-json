@@ -193,6 +193,12 @@ if (!package.repository) {
         if (!u.match(/^\s*url =/)) u = null
         else u = u.replace(/^\s*url = /, '')
       }
+
+      // Remote repository URL may be like "https://user@example.com/repo".
+      // Convert it to "https://example.com/repo".
+      if (u && u.match(/^(http(s)?:\/\/)([^@\/]*)@/))
+        u = u.replace( /^(http(s)?:\/\/)([^@\/]*)@/, '$1')
+
       if (u && u.match(/^git@github.com:/))
         u = u.replace(/^git@github.com:/, 'https://github.com/')
 
