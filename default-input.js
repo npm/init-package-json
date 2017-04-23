@@ -181,6 +181,30 @@ function setupScripts (d, cb) {
   return cb(null, s)
 }
 
+function replacePrefix(u, conf) {
+  function getQuotes (s) {
+    if (/"/.test(s)) return s.match(/"(.*?)"/)[1];
+    return s;
+  }
+
+  // search .gitconfig for any insteadOf alias that match
+  // the url prefix if other than git, http or https and
+  // replace it accordingly
+
+  var prefix = u.indexOf(':')
+  if (prefix !== -1 && !u.match(/^git:|^http:|^https:/)) {
+    prefix = u.slice(0, prefix)
+    var alias = conf.indexOf('insteadOf = \"' + prefix + ':\"')
+    if (alias !== -1) {
+      var urlStart = conf.lastIndexOf('[url ', alias)
+      if (urlStart !== -1) {
+        alias = getQuotes(conf.substr(urlStart, alias - urlStart))
+        return u.replace(new RegExp('^' + prefix + ':'), alias)
+      }
+    }
+  }
+}
+
 if (!package.repository) {
   exports.repository = function (cb) {
     fs.readFile('.git/config', 'utf8', function (er, gconf) {
@@ -198,7 +222,19 @@ if (!package.repository) {
       if (u && u.match(/^git@github.com:/))
         u = u.replace(/^git@github.com:/, 'https://github.com/')
 
-      return cb(null, yes ? u : prompt('git repository', u))
+      var url = replacePrefix(u, gconf)
+      if (url) {
+        return cb(null, yes ? u : prompt('git repository', u))
+      } else {
+        var globalconf = path.join(osenv.home(), '.gitconfig')
+        fs.readFile(globalconf, 'utf8', function (er, gconf) {
+          if (!er && gconf) {
+            var url = replacePrefix(u, gconf)
+            if (url) u = url
+          }
+          return cb(null, yes ? u : prompt('git repository', u))
+        })
+      }
     })
   }
 }
