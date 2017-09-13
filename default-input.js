@@ -50,8 +50,9 @@ function readDeps (test, excluded) { return function (cb) {
 }}
 
 var name = package.name || basename
+var spec
 try {
-  var spec = npa(name)
+  spec = npa(name)
 } catch (e) {
   spec = {}
 }
