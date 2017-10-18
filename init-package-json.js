@@ -61,7 +61,12 @@ function init (dir, input, config, cb) {
     if (!pkg.version || !semver.valid(pkg.version))
       delete pkg.version
 
-    ctx.package = pkg
+    // Some projects (like cordova-lib) have begun replacing the 'package' keyword in favour of 'pkg' as es-lint complains otherwise.
+    // this means that e.g. PromZard files in CordovaLib have started falling over because the 'package' variable no longer exists.
+    // In order to maintain backward compatibility with any packages still allowing the 'package' keyword, but also allowing init-package-json
+    // to work with the 'pkg' naming convention, add both to the context.
+    ctx.package = pkg;
+    ctx.pkg = pkg;
     ctx.config = config || {}
 
     // make sure that the input is valid.
