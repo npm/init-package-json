@@ -4,7 +4,7 @@ var rimraf = require('rimraf')
 
 var EXPECT = {
     name: 'test',
-    version: '1.0.0',
+    version: '0.0.0',
     description: '',
     author: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
