@@ -3,7 +3,10 @@
   "version": "1.10.1",
   "main": "init-package-json.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "prerelease": "npm t",
+    "postrelease": "npm publish && git push --follow-tags",
+    "release": "standard-version -s",
+    "test": "tap --nyc-arg=--all --coverage test"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,7 @@
     "mkdirp": "^0.5.1",
     "npm": "^4.3.0",
     "rimraf": "^2.1.4",
+    "standard-version": "^4.3.0",
     "tap": "^10.3.0"
   },
   "keywords": [
