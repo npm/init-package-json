@@ -12,7 +12,7 @@ function isTestPkg (p) {
 }
 
 function niceName (n) {
-  return n.replace(/^node-|[.-]js$/g, '').toLowerCase()
+  return n.replace(/^node-|[.-]js$/g, '').replace(' ', '-').toLowerCase()
 }
 
 function conf (name) {
@@ -50,7 +50,12 @@ function readDeps (test, excluded) { return function (cb) {
 }}
 
 var name = package.name || basename
-var spec = npa(name)
+var spec
+try {
+  spec = npa(name)
+} catch (e) {
+  spec = {}
+}
 var scope = conf('scope')
 if (scope) {
   if (scope.charAt(0) !== '@') scope = '@' + scope
