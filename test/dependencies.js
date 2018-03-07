@@ -7,7 +7,7 @@ var fs = require('fs')
 
 var EXPECT = {
   name: 'test-deps',
-  version: '1.0.0',
+  version: '0.0.0',
   description: '',
   author: '',
   scripts: { test: 'mocha' },
