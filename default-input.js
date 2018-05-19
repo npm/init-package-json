@@ -128,7 +128,7 @@ if (!package.bin) {
       })
       if (r.length) {
         // fix bin script path
-        r[0] = 'bin/' + r[0]
+        r[0] = './bin/' + r[0]
       }
       return cb(null, r[0])
     })
