@@ -14,7 +14,7 @@ var EXPECT = {
     scripts: { test: 'echo \"Error: no test specified\" && exit 1' },
     main: 'basic.js',
     keywords: [],
-    license: 'ISC'
+    license: 'MIT'
 }
 
 tap.test('--yes with scope', function (t) {

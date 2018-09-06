@@ -233,7 +233,7 @@ if (!package.author) {
 var license = package.license ||
               config.get('init.license') ||
               config.get('init-license') ||
-              'ISC'
+              'MIT'
 exports.license = yes ? license : prompt('license', license, function (data) {
   var its = validateLicense(data)
   if (its.validForNewPackages) return data

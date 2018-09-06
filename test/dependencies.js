@@ -13,7 +13,7 @@ var EXPECT = {
   scripts: { test: 'mocha' },
   main: 'index.js',
   keywords: [],
-  license: 'ISC',
+  license: 'MIT',
   dependencies: {
     'tap': '*'
   },

@@ -13,7 +13,7 @@ test('spaces', function (t) {
       version: '1.0.0',
       description: '',
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
-      license: 'ISC',
+      license: 'MIT',
       author: '',
       main: 'basic.js'
     }
