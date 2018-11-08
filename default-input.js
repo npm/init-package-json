@@ -61,7 +61,7 @@ if (scope) {
     name = scope + '/' + name
   }
 }
-exports.name =  yes ? name : prompt('package name', niceName(name), function (data) {
+exports.name =  yes ? niceName(name) : prompt('package name', niceName(name), function (data) {
   var its = validateName(data)
   if (its.validForNewPackages) return data
   var errors = (its.errors || []).concat(its.warnings || [])
