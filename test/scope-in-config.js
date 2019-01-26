@@ -8,7 +8,7 @@ var init = require('../')
 
 var EXPECT = {
     name: '@scoped/test',
-    version: '1.0.0',
+    version: '0.1.0',
     description: '',
     author: '',
     scripts: { test: 'echo \"Error: no test specified\" && exit 1' },

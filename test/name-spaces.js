@@ -10,7 +10,7 @@ test('spaces', function (t) {
       throw er
     var wanted = {
       name: 'the-name',
-      version: '1.0.0',
+      version: '0.1.0',
       description: '',
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
