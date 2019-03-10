@@ -3,7 +3,7 @@ const t = require('tap')
 const init = require('../')
 const common = require('./lib/common')
 
-t.skip('single space', t => {
+t.test('single space', t => {
   const dir = t.testdir({})
 
   init(dir, '', {}, (er, data) => {
@@ -16,7 +16,7 @@ t.skip('single space', t => {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'basic.js'
+      main: 'index.js'
     }
     console.log('')
     t.has(data, wanted)
@@ -25,6 +25,7 @@ t.skip('single space', t => {
 
   common.drive([
     'the name\n',
+    'the-name\n',
     '\n',
     '\n',
     '\n',
@@ -37,7 +38,7 @@ t.skip('single space', t => {
   ])
 })
 
-t.skip('multiple spaces', t => {
+t.test('multiple spaces', t => {
   const dir = t.testdir({})
 
   init(dir, '', {}, (er, data) => {
@@ -50,7 +51,7 @@ t.skip('multiple spaces', t => {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'basic.js'
+      main: 'index.js'
     }
     console.log('')
     t.has(data, wanted)
@@ -59,6 +60,7 @@ t.skip('multiple spaces', t => {
 
   common.drive([
     'the name should be this\n',
+    'the-name-should-be-this\n',
     '\n',
     '\n',
     '\n',
