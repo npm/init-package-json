@@ -73,7 +73,7 @@ exports.name =  yes ? name : prompt('package name', niceName(name), function (da
 var version = package.version ||
               config.get('init.version') ||
               config.get('init-version') ||
-              '1.0.0'
+              '0.1.0'
 exports.version = yes ?
   version :
   prompt('version', version, function (version) {
