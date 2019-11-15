@@ -13,3 +13,128 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+  CUESTIONES DE LICENCIA
+  ==============
+
+  El kit de herramientas OpenSSL permanece bajo una doble licencia, es decir, ambas condiciones de
+  la licencia OpenSSL y la licencia SSLeay original se aplican al kit de herramientas.
+  Consulte a continuación los textos de la licencia real.
+
+  Licencia OpenSSL
+  ---------------
+
+/ * ================================================ ====================
+ * Copyright (c) 1998-2019 El Proyecto OpenSSL. Todos los derechos reservados.
+ * *
+ * Redistribución y uso en fuentes y formas binarias, con o sin
+ * modificación, se permiten siempre que las siguientes condiciones
+ * se cumplen:
+ * *
+ * 1. Las redistribuciones del código fuente deben conservar los derechos de autor anteriores
+ * Aviso, esta lista de condiciones y el siguiente descargo de responsabilidad.
+ * *
+ * 2. Las redistribuciones en forma binaria deben reproducir los derechos de autor anteriores
+ * Aviso, esta lista de condiciones y el siguiente descargo de responsabilidad en
+ * la documentación y / u otros materiales proporcionados con el
+ * distribución.
+ * *
+ * 3. Todos los materiales publicitarios que mencionan características o uso de este
+ * el software debe mostrar el siguiente reconocimiento:
+ * "Este producto incluye software desarrollado por OpenSSL Project
+ * para usar en OpenSSL Toolkit. (http://www.openssl.org/) "
+ * *
+ * 4. Los nombres "OpenSSL Toolkit" y "OpenSSL Project" no deben usarse para
+ * respaldar o promocionar productos derivados de este software sin
+ * previa autorización por escrito. Para obtener un permiso por escrito, comuníquese con
+ * openssl-core@openssl.org.
+ * *
+ * 5. Los productos derivados de este software no pueden llamarse "OpenSSL"
+ * ni "OpenSSL" puede aparecer en sus nombres sin previo escrito
+ * permiso del Proyecto OpenSSL.
+ * *
+ * 6. Las redistribuciones de cualquier forma deben retener lo siguiente
+ * reconocimiento:
+ * "Este producto incluye software desarrollado por OpenSSL Project
+ * para usar en OpenSSL Toolkit (http://www.openssl.org/) "
+ * *
+ * ESTE SOFTWARE ES PROPORCIONADO POR EL PROYECTO OpenSSL `` TAL CUAL '' Y CUALQUIERA
+ * GARANTÍAS EXPRESAS O IMPLÍCITAS, INCLUIDAS, PERO SIN LIMITARSE A, LAS
+ * GARANTÍAS IMPLÍCITAS DE COMERCIABILIDAD Y APTITUD PARA UN PARTICULAR
+ * PROPÓSITO SE RECHAZAN. EN NINGÚN CASO EL PROYECTO OpenSSL O
+ * SUS COLABORADORES SERÁN RESPONSABLES POR CUALQUIERA DIRECTA, INDIRECTA, INCIDENTAL,
+ * DAÑOS ESPECIALES, EJEMPLARES O CONSECUENTES (INCLUIDOS, PERO
+ * NO LIMITADO A LA ADQUISICIÓN DE BIENES O SERVICIOS SUSTITUTOS;
+ * PÉRDIDA DE USO, DATOS O GANANCIAS; O INTERRUPCIÓN EMPRESARIAL)
+ * SIN EMBARGO, Y EN CUALQUIER TEORÍA DE RESPONSABILIDAD, YA SEA POR CONTRATO,
+ * RESPONSABILIDAD ESTRICTA O TORTAR (INCLUYENDO NEGLIGENCIA O DE OTRA MANERA)
+ * DERIVADO DE CUALQUIER FORMA DEL USO DE ESTE SOFTWARE, INCLUSO SI SE LO RECOMIENDA
+ * DE LA POSIBILIDAD DE TALES DAÑOS.
+ * ================================================= ===================
+ * *
+ * Este producto incluye software criptográfico escrito por Eric Young
+ * (eay@cryptsoft.com). Este producto incluye software escrito por Tim
+ * Hudson (tjh@cryptsoft.com).
+ * *
+ * /
+
+ Licencia original de SSLeay
+ -----------------------
+
+/ * Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+ * Todos los derechos reservados.
+ * *
+ * Este paquete es una implementación SSL escrita
+ * por Eric Young (eay@cryptsoft.com).
+ * La implementación se escribió para cumplir con Netscapes SSL.
+ * *
+ * Esta biblioteca es gratuita para uso comercial y no comercial siempre que
+ * Se cumplen las siguientes condiciones. Las siguientes condiciones
+ * se aplica a todo el código encontrado en esta distribución, ya sea RC4, RSA,
+ * lhash, DES, etc., código; no solo el código SSL. La documentación SSL
+ * incluido con esta distribución está cubierto por los mismos términos de copyright
+ * excepto que el titular es Tim Hudson (tjh@cryptsoft.com).
+ * *
+ * Los derechos de autor siguen siendo de Eric Young y, como tal, cualquier aviso de derechos de autor en
+ * el código no se debe eliminar.
+ * Si este paquete se usa en un producto, Eric Young debe recibir una atribución
+ * como autor de las partes de la biblioteca utilizadas.
+ * Esto puede ser en forma de mensaje de texto al inicio del programa o
+ * en la documentación (en línea o textual) proporcionada con el paquete.
+ * *
+ * Redistribución y uso en fuentes y formas binarias, con o sin
+ * modificación, se permiten siempre que las siguientes condiciones
+ * se cumplen:
+ * 1. Las redistribuciones del código fuente deben conservar los derechos de autor
+ * Aviso, esta lista de condiciones y el siguiente descargo de responsabilidad.
+ * 2. Las redistribuciones en forma binaria deben reproducir los derechos de autor anteriores
+ * Aviso, esta lista de condiciones y el siguiente descargo de responsabilidad en el
+ * documentación y / u otros materiales provistos con la distribución.
+ * 3. Todos los materiales publicitarios que mencionan características o uso de este software
+ * debe mostrar el siguiente reconocimiento:
+ * "Este producto incluye software criptográfico escrito por
+ * Eric Young (eay@cryptsoft.com) "
+ * La palabra 'criptográfica' puede omitirse si las rutinas de la biblioteca
+ * los que se usan no están relacionados con la criptografía :-).
+ * 4. Si incluye algún código específico de Windows (o un derivado del mismo) de
+ * el directorio de aplicaciones (código de la aplicación) debe incluir un reconocimiento:
+ * "Este producto incluye software escrito por Tim Hudson (tjh@cryptsoft.com)"
+ * *
+ * ESTE SOFTWARE ES PROPORCIONADO POR ERIC YOUNG `` TAL CUAL '' Y
+ * CUALQUIER GARANTÍA EXPRESA O IMPLÍCITA, INCLUYENDO, PERO SIN LIMITARSE A, EL
+ * GARANTÍAS IMPLÍCITAS DE COMERCIABILIDAD Y APTITUD PARA UN PROPÓSITO EN PARTICULAR
+ * ESTÁN DESCARGADOS. EN NINGÚN CASO EL AUTOR O LOS CONTRIBUIDORES SERÁN RESPONSABLES
+ * PARA CUALQUIERA DIRECTA, INDIRECTA, INCIDENTAL, ESPECIAL, EJEMPLAR O CONSECUENTE
+ * DAÑOS (INCLUYENDO, PERO SIN LIMITARSE A, LA ADQUISICIÓN DE BIENES SUSTITUTOS
+ * O SERVICIOS; PÉRDIDA DE USO, DATOS O GANANCIAS; O INTERRUPCIÓN EMPRESARIAL)
+ * SIN EMBARGO, Y EN CUALQUIER TEORÍA DE RESPONSABILIDAD, ESTE ES EL CONTRATO, ESTRICTO
+ * RESPONSABILIDAD O TORTURA (INCLUYENDO NEGLIGENCIA O DE OTRA MANERA) QUE SURJA DE CUALQUIER FORMA
+ * FUERA DEL USO DE ESTE SOFTWARE, INCLUSO SI SE LE INDICA LA POSIBILIDAD DE
+ * TALES DAÑOS.
+ * *
+ * Los términos de licencia y distribución para cualquier versión disponible públicamente o
+ * la derivada de este código no se puede cambiar. es decir, este código no puede ser simplemente
+ * copiado y puesto bajo otra licencia de distribución
+ * [incluida la licencia pública GNU.]
+ * /
+
