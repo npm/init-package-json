@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
-    "npm": "^5.7.1",
+    "npm": "^6.14.6",
     "rimraf": "^2.1.4",
     "standard-version": "^4.3.0",
     "tap": "^11.1.2"
