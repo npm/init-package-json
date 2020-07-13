@@ -29,7 +29,7 @@
     "mkdirp": "^0.5.1",
     "npm": "^5.7.1",
     "rimraf": "^2.1.4",
-    "standard-version": "^4.3.0",
+    "standard-version": "^8.0.1",
     "tap": "^11.1.2"
   },
   "keywords": [
