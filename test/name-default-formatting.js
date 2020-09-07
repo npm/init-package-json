@@ -29,3 +29,17 @@ t.test('removes node- and .js', t => {
     t.end()
   })
 })
+
+t.test('capital letters and tabs', t => {
+  const dir = t.testdir({
+    'tab	sep	folder	name': {}
+  })
+
+  init(resolve(dir, 'Tab	Sep	Folder	Name'), '', { yes: 'yes' }, (er, data) => {
+    if (er)
+      throw er
+
+    t.equal(data.name, 'tab-sep-folder-name')
+    t.end()
+  })
+})
