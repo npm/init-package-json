@@ -30,7 +30,10 @@
     "npm": "^5.7.1",
     "rimraf": "^2.1.4",
     "standard-version": "^4.3.0",
-    "tap": "^11.1.2"
+    "tap": "^14.10.8"
+  },
+  "tap": {
+    "jobs": "1"
   },
   "keywords": [
     "init",
