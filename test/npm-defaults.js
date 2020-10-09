@@ -1,11 +1,43 @@
-var test = require('tap').test
-var rimraf = require('rimraf')
-var resolve = require('path').resolve
+const { resolve } = require('path')
+const { promisify } = require('util')
 
-var npm = require('npm')
-var init = require('../')
+const t = require('tap')
 
-var EXPECTED = {
+// npm config
+const Config = require('@npmcli/config')
+const types = {
+  'init-module': Config.typeDefs.path.type,
+  'init-author-name': String,
+  'init-author-email': String,
+  'init-author-url': ['', Config.typeDefs.url.type],
+  'init-license': String,
+  'init-version': Config.typeDefs.semver.type,
+  'init.module': Config.typeDefs.path.type,
+  'init.author.name': String,
+  'init.author.email': String,
+  'init.author.url': ['', Config.typeDefs.url.type],
+  'init.license': String,
+  'init.version': Config.typeDefs.semver.type,
+}
+const defaults = {
+  'init-module': '~/.npm-init.js',
+  'init-author-name': '',
+  'init-author-email': '',
+  'init-author-url': '',
+  'init-version': '1.0.0',
+  'init-license': 'ISC',
+  'init.module': '~/.npm-init.js',
+  'init.author.name': '',
+  'init.author.email': '',
+  'init.author.url': '',
+  'init.version': '1.0.0',
+  'init.license': 'ISC',
+}
+const shorthands = {}
+
+const init = promisify(require('../'))
+
+const EXPECTED = {
   name: 'test',
   version: '3.1.4',
   description: '',
@@ -21,92 +53,121 @@ var EXPECTED = {
   license: 'WTFPL'
 }
 
-test('npm configuration values pulled from environment', function (t) {
+t.test('npm configuration values pulled from environment', async t => {
   /*eslint camelcase:0 */
-  process.env.npm_config_yes = 'yes'
-
-  process.env.npm_config_init_author_name = 'npmbot'
-  process.env.npm_config_init_author_email = 'n@p.m'
-  process.env.npm_config_init_author_url = 'http://npm.im'
-
-  process.env.npm_config_init_license = EXPECTED.license
-  process.env.npm_config_init_version = EXPECTED.version
-
-  npm.load({}, function (err) {
-    t.ifError(err, 'npm loaded successfully')
-
-    // clear out dotted names from test environment
-    npm.config.del('init.author.name')
-    npm.config.del('init.author.email')
-    npm.config.del('init.author.url')
-    // the following have npm defaults, and need to be explicitly overridden
-    npm.config.set('init.license', '')
-    npm.config.set('init.version', '')
-
-    process.chdir(resolve(__dirname))
-    init(__dirname, __dirname, npm.config, function (er, data) {
-      t.ifError(err, 'init ran successfully')
-
-      t.same(data, EXPECTED, 'got the package data from the environment')
-      t.end()
-    })
-  })
-})
-
-test('npm configuration values pulled from dotted config', function (t) {
-  /*eslint camelcase:0 */
-  var config = {
-    yes: 'yes',
-
-    'init.author.name': 'npmbot',
-    'init.author.email': 'n@p.m',
-    'init.author.url': 'http://npm.im',
-
-    'init.license': EXPECTED.license,
-    'init.version': EXPECTED.version
+  const env = {
+    npm_config_yes: 'yes',
+    npm_config_init_author_name: 'npmbot',
+    npm_config_init_author_email: 'n@p.m',
+    npm_config_init_author_url: 'http://npm.im',
+    npm_config_init_license: EXPECTED.license,
+    npm_config_init_version: EXPECTED.version
   }
 
-  npm.load(config, function (err) {
-    t.ifError(err, 'npm loaded successfully')
-
-    process.chdir(resolve(__dirname))
-    init(__dirname, __dirname, npm.config, function (er, data) {
-      t.ifError(err, 'init ran successfully')
-
-      t.same(data, EXPECTED, 'got the package data from the config')
-      t.end()
-    })
+  const cwd = t.testdir({
+    npm: {},
+    'package.json': JSON.stringify({
+      name: EXPECTED.name,
+      main: EXPECTED.main,
+      directories: EXPECTED.directories,
+    }),
   })
+
+  const conf = new Config({
+    env,
+    argv: [],
+    cwd,
+    npmPath: resolve(cwd, 'npm'),
+    types,
+    shorthands,
+    defaults,
+  })
+
+  await conf.load()
+  console.error(conf.data)
+
+  const _cwd = process.cwd()
+  t.teardown(() => process.chdir(_cwd))
+  process.chdir(cwd)
+
+  const data = await init(cwd, cwd, conf)
+  t.same(data, EXPECTED, 'got the package data from the environment')
 })
 
-test('npm configuration values pulled from dashed config', function (t) {
-  /*eslint camelcase:0 */
-  var config = {
-    yes: 'yes',
+t.test('npm configuration values pulled from dotted config', async t => {
+  const cwd = t.testdir({
+    npm: {},
+    'package.json': JSON.stringify({
+      name: EXPECTED.name,
+      main: EXPECTED.main,
+      directories: EXPECTED.directories,
+    }),
+    '.npmrc': `
+yes=true,
 
-    'init-author-name': 'npmbot',
-    'init-author-email': 'n@p.m',
-    'init-author-url': 'http://npm.im',
+init.author.name=npmbot
+init.author.email=n@p.m
+init.author.url=http://npm.im
 
-    'init-license': EXPECTED.license,
-    'init-version': EXPECTED.version
-  }
-
-  npm.load(config, function (err) {
-    t.ifError(err, 'npm loaded successfully')
-
-    process.chdir(resolve(__dirname))
-    init(__dirname, __dirname, npm.config, function (er, data) {
-      t.ifError(err, 'init ran successfully')
-
-      t.same(data, EXPECTED, 'got the package data from the config')
-      t.end()
-    })
+init.license=${EXPECTED.license}
+init.version=${EXPECTED.version}`
   })
+
+  const conf = new Config({
+    env: {},
+    argv: [],
+    cwd,
+    npmPath: resolve(cwd, 'npm'),
+    types,
+    shorthands,
+    defaults,
+  })
+
+  await conf.load()
+
+  const _cwd = process.cwd()
+  t.teardown(() => process.chdir(_cwd))
+  process.chdir(cwd)
+
+  const data = await init(cwd, cwd, conf)
+  t.same(data, EXPECTED, 'got the package data from the config')
 })
 
-test('cleanup', function (t) {
-  rimraf.sync(resolve(__dirname, 'package.json'))
-  t.pass('cleaned up')
-  t.end()
+t.test('npm configuration values pulled from dashed config', async t => {
+  const cwd = t.testdir({
+    npm: {},
+    'package.json': JSON.stringify({
+      name: EXPECTED.name,
+      main: EXPECTED.main,
+      directories: EXPECTED.directories,
+    }),
+    '.npmrc': `
+yes=true,
+
+init-author-name=npmbot
+init-author-email=n@p.m
+init-author-url=http://npm.im
+
+init-license=${EXPECTED.license}
+init-version=${EXPECTED.version}`
+  })
+
+  const conf = new Config({
+    env: {},
+    argv: [],
+    cwd,
+    npmPath: resolve(cwd, 'npm'),
+    types,
+    shorthands,
+    defaults,
+  })
+
+  await conf.load()
+
+  const _cwd = process.cwd()
+  t.teardown(() => process.chdir(_cwd))
+  process.chdir(cwd)
+
+  const data = await init(cwd, cwd, conf)
+  t.same(data, EXPECTED, 'got the package data from the config')
 })
