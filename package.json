@@ -21,7 +21,7 @@
     "read": "~1.0.1",
     "read-package-json": "^2.1.2",
     "semver": "^7.3.2",
-    "validate-npm-package-license": "^3.0.1",
+    "validate-npm-package-license": "^3.0.4",
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
