@@ -3,9 +3,10 @@
   "version": "1.10.3",
   "main": "init-package-json.js",
   "scripts": {
-    "prerelease": "npm t",
-    "postrelease": "npm publish && git push --follow-tags",
-    "test": "tap --nyc-arg=--all --coverage test"
+    "test": "tap",
+    "preversion": "npm test",
+    "postversion": "npm publish",
+    "prepublishOnly": "git push origin --follow-tags"
   },
   "repository": {
     "type": "git",
