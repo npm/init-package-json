@@ -5,7 +5,6 @@
   "scripts": {
     "prerelease": "npm t",
     "postrelease": "npm publish && git push --follow-tags",
-    "release": "standard-version -s",
     "test": "tap --nyc-arg=--all --coverage test"
   },
   "repository": {
@@ -29,7 +28,6 @@
     "@npmcli/config": "^1.2.1",
     "mkdirp": "^1.0.4",
     "rimraf": "^2.1.4",
-    "standard-version": "^4.3.0",
     "tap": "^14.10.8"
   },
   "tap": {
