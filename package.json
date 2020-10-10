@@ -27,7 +27,7 @@
   "devDependencies": {
     "@npmcli/config": "^1.2.1",
     "mkdirp": "^1.0.4",
-    "rimraf": "^2.1.4",
+    "rimraf": "^3.0.2",
     "tap": "^14.10.8"
   },
   "tap": {
