@@ -20,7 +20,7 @@
     "promzard": "^0.3.0",
     "read": "~1.0.1",
     "read-package-json": "1 || 2",
-    "semver": "2.x || 3.x || 4 || 5",
+    "semver": "^7.3.2",
     "validate-npm-package-license": "^3.0.1",
     "validate-npm-package-name": "^3.0.0"
   },
