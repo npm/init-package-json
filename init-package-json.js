@@ -98,6 +98,10 @@ function init (dir, input, config, cb) {
         if (!pkg.repository)
           delete pkg.repository
 
+        // if the main is empty, remove it.
+        if (!pkg.main)
+          delete pkg.main
+
         // readJson filters out empty descriptions, but init-package-json
         // traditionally leaves them alone
         if (!pkg.description)

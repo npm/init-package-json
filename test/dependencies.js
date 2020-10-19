@@ -11,7 +11,6 @@ var EXPECT = {
   description: '',
   author: '',
   scripts: { test: 'mocha' },
-  main: 'index.js',
   keywords: [],
   license: 'ISC',
   dependencies: {

@@ -111,8 +111,7 @@ if (!package.main) {
       else
         f = f[0]
 
-      var index = f || 'index.js'
-      return cb(null, yes ? index : prompt('entry point', index))
+      return cb(null, yes ? f : prompt('entry point', f))
     })
   }
 }
