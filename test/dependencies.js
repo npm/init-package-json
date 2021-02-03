@@ -19,6 +19,9 @@ var EXPECT = {
   },
   devDependencies: {
     'mocha': '^1.0.0'
+  },
+  optionalDependencies: {
+    'abbrev': '*'
   }
 }
 
@@ -29,7 +32,11 @@ process.chdir(testdir)
 
 fs.writeFileSync(path.resolve(testdir, 'package.json'), JSON.stringify({
   dependencies: {
+    'abbrev': '*',
     'tap': '*'
+  },
+  optionalDependencies: {
+    'abbrev': '*'
   }
 }))
 
