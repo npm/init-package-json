@@ -5,33 +5,79 @@ const t = require('tap')
 
 // npm config
 const Config = require('@npmcli/config')
-const types = {
-  'init-module': Config.typeDefs.path.type,
-  'init-author-name': String,
-  'init-author-email': String,
-  'init-author-url': ['', Config.typeDefs.url.type],
-  'init-license': String,
-  'init-version': Config.typeDefs.semver.type,
-  'init.module': Config.typeDefs.path.type,
-  'init.author.name': String,
-  'init.author.email': String,
-  'init.author.url': ['', Config.typeDefs.url.type],
-  'init.license': String,
-  'init.version': Config.typeDefs.semver.type,
-}
-const defaults = {
-  'init-module': '~/.npm-init.js',
-  'init-author-name': '',
-  'init-author-email': '',
-  'init-author-url': '',
-  'init-version': '1.0.0',
-  'init-license': 'ISC',
-  'init.module': '~/.npm-init.js',
-  'init.author.name': '',
-  'init.author.email': '',
-  'init.author.url': '',
-  'init.version': '1.0.0',
-  'init.license': 'ISC',
+const definitions = {
+  'init-module': {
+    key: 'init-module',
+    description: 'init module config',
+    default: '~/.npm-init.js',
+    type: Config.typeDefs.path.type
+  },
+  'init-author-name': {
+    key: 'init-author-name',
+    description: 'init author name config',
+    default: '',
+    type: String
+  },
+  'init-author-email': {
+    key: 'init-author-email',
+    description: 'init author email config',
+    default: '',
+    type: String
+  },
+  'init-author-url': {
+    key: 'init-author-url',
+    description: 'init author url config',
+    default: '',
+    type: ['', Config.typeDefs.url.type]
+  },
+  'init-license': {
+    key: 'init-license',
+    description: 'init license config',
+    default: 'ISC',
+    type: String
+  },
+  'init-version': {
+    key: 'init-version',
+    description: 'init version config',
+    default: '1.0.0',
+    type: Config.typeDefs.semver.type
+  },
+  'init.module': {
+    key: 'init-module',
+    description: 'deprecated init module config',
+    default: '~/.npm-init.js',
+    type: Config.typeDefs.path.type
+  },
+  'init.author.name': {
+    key: 'init.author.name',
+    description: 'deprecated init author name config',
+    default: '',
+    type: String
+  },
+  'init.author.email': {
+    key: 'init.author.email',
+    description: 'deprecated init author email config',
+    default: '',
+    type: String
+  },
+  'init.author.url': {
+    key: 'init.author.url',
+    description: 'deprecated init author url config',
+    default: '',
+    type: ['', Config.typeDefs.url.type]
+  },
+  'init.license': {
+    key: 'init.license',
+    description: 'deprecated init license config',
+    default: 'ISC',
+    type: String
+  },
+  'init.version': {
+    key: 'init.version',
+    description: 'deprecated init version config',
+    default: '1.0.0',
+    type: Config.typeDefs.semver.type
+  },
 }
 const shorthands = {}
 
@@ -78,9 +124,8 @@ t.test('npm configuration values pulled from environment', async t => {
     argv: [],
     cwd,
     npmPath: resolve(cwd, 'npm'),
-    types,
+    definitions,
     shorthands,
-    defaults,
   })
 
   await conf.load()
@@ -118,9 +163,8 @@ init.version=${EXPECTED.version}`
     argv: [],
     cwd,
     npmPath: resolve(cwd, 'npm'),
-    types,
+    definitions,
     shorthands,
-    defaults,
   })
 
   await conf.load()
@@ -157,9 +201,8 @@ init-version=${EXPECTED.version}`
     argv: [],
     cwd,
     npmPath: resolve(cwd, 'npm'),
-    types,
+    definitions,
     shorthands,
-    defaults,
   })
 
   await conf.load()
