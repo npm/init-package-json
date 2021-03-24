@@ -30,16 +30,16 @@ t.test('removes node- and .js', t => {
   })
 })
 
-t.test('capital letters and tabs', t => {
+t.test('capital letters and multiple spaces', t => {
   const dir = t.testdir({
-    'tab	sep	folder	name': {}
+    'capital letters and  multiple   spaces': {}
   })
 
-  init(resolve(dir, 'Tab	Sep	Folder	Name'), '', { yes: 'yes' }, (er, data) => {
+  init(resolve(dir, 'capital letters and  multiple   spaces'), '', { yes: 'yes' }, (er, data) => {
     if (er)
       throw er
 
-    t.equal(data.name, 'tab-sep-folder-name')
+    t.equal(data.name, 'capital-letters-and-multiple-spaces')
     t.end()
   })
 })
