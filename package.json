@@ -26,7 +26,7 @@
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
-    "@npmcli/config": "^2.0.0",
+    "@npmcli/config": "^2.1.0",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "tap": "^14.11.0"
