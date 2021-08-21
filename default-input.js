@@ -11,8 +11,9 @@ function isTestPkg (p) {
   return !!p.match(/^(expresso|mocha|tap|coffee-script|coco|streamline)$/)
 }
 
+// creates the default package name, which follows naming standards
 function niceName (n) {
-  return n.replace(/^node-|[.-]js$/g, '').replace(/\s+/g, ' ').replace(/ /g, '-').toLowerCase()
+  return n.replace(/^node-|[.-]js$/g, '').replace(/\s+/g, '-').toLowerCase();
 }
 
 function readDeps (test, excluded) { return function (cb) {
