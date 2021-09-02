@@ -21,11 +21,10 @@
   "license": "ISC",
   "description": "A node module to get your node module started",
   "dependencies": {
-    "glob": "^7.1.1",
-    "npm-package-arg": "^8.1.2",
+    "npm-package-arg": "^8.1.5",
     "promzard": "^0.3.0",
     "read": "~1.0.1",
-    "read-package-json": "^4.0.0",
+    "read-package-json": "^4.1.1",
     "semver": "^7.3.5",
     "validate-npm-package-license": "^3.0.4",
     "validate-npm-package-name": "^3.0.0"
@@ -33,8 +32,6 @@
   "devDependencies": {
     "@npmcli/config": "^2.1.0",
     "@npmcli/template-oss": "^1.0.3",
-    "mkdirp": "^1.0.4",
-    "rimraf": "^3.0.2",
     "tap": "^15.0.9"
   },
   "engines": {
