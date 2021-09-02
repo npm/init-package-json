@@ -123,14 +123,11 @@ if (!package.bin) {
       // no bins
       if (er) return cb()
       // just take the first js file we find there, or nada
-      var r = d.filter(function (f) {
-          return f.match(/\.js$/)
-      })
-      if (r.length) {
-        // fix bin script path
-        r[0] = './bin/' + r[0]
+      let r = d.find(f => f.match(/\.js$/))
+      if (r) {
+        r = `bin/${r}`
       }
-      return cb(null, r[0])
+      return cb(null, r)
     })
   }
 }
