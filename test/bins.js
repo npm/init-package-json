@@ -8,12 +8,13 @@ console.log = function () {}
 t.test('auto bin population', function (t) {
   const dir = t.testdir({
     bin: {
-      'run.js': ''
-    }
+      'run.js': '',
+    },
   })
   init(dir, '', {}, (er, data) => {
-    if (er)
+    if (er) {
       throw er
+    }
     t.same(data.bin, { 'auto-bin-test': 'bin/run.js' }, 'bin auto populated with correct path')
     t.end()
   })
@@ -27,7 +28,7 @@ t.test('auto bin population', function (t) {
     '\n',
     '\n',
     '\n',
-    'yes\n'
+    'yes\n',
   ])
 })
 

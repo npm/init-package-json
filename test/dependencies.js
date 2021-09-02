@@ -1,12 +1,8 @@
 var tap = require('tap')
 var init = require('../')
-var path = require('path')
-var rimraf = require('rimraf')
-var mkdirp = require('mkdirp')
-var fs = require('fs')
 
 var EXPECT = {
-  name: 'test-deps',
+  name: 'tap-testdir-dependencies',
   version: '1.0.0',
   description: '',
   author: '',
@@ -15,46 +11,49 @@ var EXPECT = {
   keywords: [],
   license: 'ISC',
   dependencies: {
-    'tap': '*'
+    tap: '*',
   },
   devDependencies: {
-    'mocha': '^1.0.0'
+    mocha: '^1.0.0',
   },
   optionalDependencies: {
-    'abbrev': '*'
-  }
+    abbrev: '*',
+  },
 }
 
 const testdirContents = {
   'package.json': JSON.stringify({
     dependencies: {
-      'abbrev': '*',
-      'tap': '*'
+      abbrev: '*',
+      tap: '*',
     },
     optionalDependencies: {
-      'abbrev': '*'
-    }
+      abbrev: '*',
+    },
   }),
-  node_modules: {}
+  node_modules: {},
 }
 
 for (const fakedep of ['mocha', 'tap', 'async', 'foobar']) {
   testdirContents.node_modules[fakedep] = {
     'package.json': JSON.stringify({
       name: fakedep,
-      version: '1.0.0'
-    })
+      version: '1.0.0',
+    }),
   }
 }
-console.log(testdirContents)
 const testdir = tap.testdir(testdirContents)
+const origwd = process.cwd()
+process.chdir(testdir)
 
 const log = console.log
 console.log = function () {}
 
 tap.test('read in dependencies and dev deps', function (t) {
   init(testdir, testdir, {yes: 'yes', 'save-prefix': '^'}, function (er, data) {
-    if (er) throw er
+    if (er) {
+      throw er
+    }
 
     t.same(data, EXPECT, 'used the correct dependency information')
     t.end()
@@ -62,6 +61,7 @@ tap.test('read in dependencies and dev deps', function (t) {
 })
 
 tap.test('teardown', function (t) {
+  process.chdir(origwd)
   console.log = log
   t.end()
 })

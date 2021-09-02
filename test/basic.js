@@ -1,7 +1,5 @@
 var common = require('./lib/common')
 var init = require('../')
-var path = require('path')
-var rimraf = require('rimraf')
 var test = require('tap').test
 
 const log = console.log
@@ -9,9 +7,10 @@ console.log = function () {}
 
 test('the basics', function (t) {
   const dir = t.testdir({})
-  var i = path.resolve('test/basic.input')
-  init(dir, i, { foo: 'bar' }, function (er, data) {
-    if (er) throw er
+  init(dir, 'test/basic.input', { foo: 'bar' }, function (er, data) {
+    if (er) {
+      throw er
+    }
     var expect = {
       name: 'the-name',
       version: '1.2.5',
@@ -20,7 +19,7 @@ test('the basics', function (t) {
       scripts: { test: 'make test' },
       main: 'main.js',
       config: { foo: 'bar' },
-      package: {}
+      package: {},
     }
     t.same(data, expect)
     t.end()
@@ -28,15 +27,16 @@ test('the basics', function (t) {
   common.drive([
     'the-name\n',
     'description\n',
-    'yes\n'
+    'yes\n',
   ])
 })
 
 test('no config', function (t) {
-  var i = path.resolve('test/basic.input')
   const dir = t.testdir({})
-  init(dir, i, function (er, data) {
-    if (er) throw er
+  init(dir, 'test/basic.input', function (er, data) {
+    if (er) {
+      throw er
+    }
     var expect = {
       name: 'the-name',
       version: '1.2.5',
@@ -45,7 +45,7 @@ test('no config', function (t) {
       scripts: { test: 'make test' },
       main: 'main.js',
       config: {},
-      package: {}
+      package: {},
     }
     t.same(data, expect)
     t.end()
@@ -53,7 +53,7 @@ test('no config', function (t) {
   common.drive([
     'the-name\n',
     'description\n',
-    'yes\n'
+    'yes\n',
   ])
 })
 

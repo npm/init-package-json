@@ -1,6 +1,5 @@
 var tap = require('tap')
 var init = require('../')
-var rimraf = require('rimraf')
 
 var log = console.log
 var logged = false
@@ -9,8 +8,11 @@ console.log = function () {
 }
 
 tap.test('silent: true', function (t) {
-  init(__dirname, __dirname, {yes: 'yes', silent: true}, function (er, data) {
-    if (er) throw er
+  const testdir = t.testdir({})
+  init(testdir, testdir, {yes: 'yes', silent: true}, function (er, data) {
+    if (er) {
+      throw er
+    }
 
     t.notOk(logged, 'did not print anything')
     t.end()
@@ -19,5 +21,5 @@ tap.test('silent: true', function (t) {
 
 tap.test('teardown', function (t) {
   console.log = log
-  rimraf(__dirname + '/package.json', t.end.bind(t))
+  t.end()
 })

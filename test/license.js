@@ -1,15 +1,16 @@
 var test = require('tap').test
 var init = require('../')
-var rimraf = require('rimraf')
 var common = require('./lib/common')
 
 const log = console.log
 console.log = function () {}
 
 test('license', function (t) {
-  init(__dirname, '', {}, function (er, data) {
-    if (er)
+  const testdir = t.testdir({})
+  init(testdir, '', {}, function (er, data) {
+    if (er) {
       throw er
+    }
 
     var wanted = {
       name: 'the-name',
@@ -18,7 +19,7 @@ test('license', function (t) {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'Apache-2.0',
       author: '',
-      main: 'basic.js'
+      main: 'index.js',
     }
     t.has(data, wanted)
     t.end()
@@ -34,11 +35,11 @@ test('license', function (t) {
     '\n',
     'Apache\n',
     'Apache-2.0\n',
-    'yes\n'
+    'yes\n',
   ])
 })
 
 test('teardown', function (t) {
   console.log = log
-  rimraf(__dirname + '/package.json', t.end.bind(t))
+  t.end()
 })

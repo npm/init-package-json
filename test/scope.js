@@ -1,26 +1,26 @@
 var tap = require('tap')
 var init = require('../')
-var rimraf = require('rimraf')
 
 var EXPECT = {
-    name: '@foo/test',
-    version: '1.2.5',
-    description: 'description',
-    author: 'npmbot <n@p.m> (http://npm.im)',
-    scripts: { test: 'make test' },
-    main: 'main.js',
-    config: { scope: '@foo' },
-    package: {}
+  name: '@foo/test',
+  version: '1.2.5',
+  description: 'description',
+  author: 'npmbot <n@p.m> (http://npm.im)',
+  scripts: { test: 'make test' },
+  main: 'main.js',
+  config: { scope: '@foo' },
+  package: {},
 }
 
 const log = console.log
 console.log = function () {}
 
 tap.test('the scope', function (t) {
-  var i = __dirname + '/basic.input'
-  var dir = __dirname
-  init(dir, i, {scope: '@foo'}, function (er, data) {
-    if (er) throw er
+  const testdir = tap.testdir({})
+  init(testdir, './test/basic.input', {scope: '@foo'}, function (er, data) {
+    if (er) {
+      throw er
+    }
 
     t.has(data, EXPECT)
     t.end()
@@ -38,5 +38,5 @@ tap.test('the scope', function (t) {
 
 tap.test('teardown', function (t) {
   console.log = log
-  rimraf(__dirname + '/package.json', t.end.bind(t))
+  t.end()
 })

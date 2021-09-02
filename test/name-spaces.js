@@ -1,4 +1,3 @@
-const { resolve } = require('path')
 const t = require('tap')
 const init = require('../')
 const common = require('./lib/common')
@@ -10,8 +9,9 @@ t.test('single space', t => {
   const dir = t.testdir({})
 
   init(dir, '', {}, (er, data) => {
-    if (er)
+    if (er) {
       throw er
+    }
     const wanted = {
       name: 'the-name',
       version: '1.0.0',
@@ -19,7 +19,7 @@ t.test('single space', t => {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'index.js'
+      main: 'index.js',
     }
     t.has(data, wanted)
     t.end()
@@ -36,7 +36,7 @@ t.test('single space', t => {
     '\n',
     '\n',
     '\n',
-    'yes\n'
+    'yes\n',
   ])
 })
 
@@ -44,8 +44,9 @@ t.test('multiple spaces', t => {
   const dir = t.testdir({})
 
   init(dir, '', {}, (er, data) => {
-    if (er)
+    if (er) {
       throw er
+    }
     const wanted = {
       name: 'the-name-should-be-this',
       version: '1.0.0',
@@ -53,7 +54,7 @@ t.test('multiple spaces', t => {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'index.js'
+      main: 'index.js',
     }
     t.has(data, wanted)
     t.end()
@@ -70,7 +71,7 @@ t.test('multiple spaces', t => {
     '\n',
     '\n',
     '\n',
-    'yes\n'
+    'yes\n',
   ])
 })
 

@@ -1,32 +1,30 @@
 var tap = require('tap')
 var init = require('../')
-var rimraf = require('rimraf')
 
 var EXPECT = {
-    name: 'test',
-    version: '1.0.0',
-    description: '',
-    author: '',
-    scripts: { test: 'echo "Error: no test specified" && exit 1' },
-    main: 'basic.js',
-    keywords: [],
-    license: 'ISC'
+  name: 'tap-testdir-yes-defaults---yes-defaults',
+  version: '1.0.0',
+  description: '',
+  author: '',
+  scripts: { test: 'echo "Error: no test specified" && exit 1' },
+  main: 'index.js',
+  keywords: [],
+  license: 'ISC',
 }
 
 const log = console.log
 console.log = function () {}
 
 tap.test('--yes defaults', function (t) {
-  init(__dirname, __dirname, {yes: 'yes'}, function (er, data) {
-    if (er) throw er
+  const testdir = t.testdir({})
+  init(testdir, testdir, {yes: 'yes'}, function (er, data) {
+    if (er) {
+      throw er
+    }
 
     t.has(data, EXPECT, 'used the default data')
     t.end()
   })
-})
-
-tap.test('teardown', function (t) {
-  rimraf(__dirname + '/package.json', t.end.bind(t))
 })
 
 tap.test('teardown', function (t) {
