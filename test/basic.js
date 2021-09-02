@@ -8,9 +8,9 @@ const log = console.log
 console.log = function () {}
 
 test('the basics', function (t) {
-  var i = path.join(__dirname, 'basic.input')
-  rimraf.sync(__dirname + '/package.json')
-  init(__dirname, i, { foo: 'bar' }, function (er, data) {
+  const dir = t.testdir({})
+  var i = path.resolve('test/basic.input')
+  init(dir, i, { foo: 'bar' }, function (er, data) {
     if (er) throw er
     var expect = {
       name: 'the-name',
@@ -33,9 +33,9 @@ test('the basics', function (t) {
 })
 
 test('no config', function (t) {
-  var i = path.join(__dirname, 'basic.input')
-  rimraf.sync(__dirname + '/package.json')
-  init(__dirname, i, function (er, data) {
+  var i = path.resolve('test/basic.input')
+  const dir = t.testdir({})
+  init(dir, i, function (er, data) {
     if (er) throw er
     var expect = {
       name: 'the-name',
@@ -59,5 +59,5 @@ test('no config', function (t) {
 
 test('teardown', function (t) {
   console.log = log
-  rimraf(__dirname + '/package.json', t.end.bind(t))
+  t.end()
 })

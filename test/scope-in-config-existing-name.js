@@ -26,6 +26,5 @@ tap.test('with existing package.json', function (t) {
 
 tap.test('teardown', function (t) {
   console.log = log
-  rimraf.sync(path.join(__dirname, 'package.json'))
-  t.end()
+  rimraf(__dirname + '/package.json', t.end.bind(t))
 })

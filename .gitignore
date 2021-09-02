@@ -1,3 +1,16 @@
-node_modules/
-.eslintrc
-.nyc_output
+# ignore everything in the root
+/*
+
+# keep these
+!/.eslintrc*
+!/.github
+!**/.gitignore
+!/package.json
+!/package-lock.json
+!/bin
+!/lib
+!/map.js
+!/tap-snapshots
+!/test
+!/README*
+!/LICENSE*

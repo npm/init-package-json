@@ -25,32 +25,29 @@ var EXPECT = {
   }
 }
 
-var origwd = process.cwd()
-var testdir = path.resolve(__dirname, 'test-deps')
-mkdirp.sync(testdir)
-process.chdir(testdir)
+const testdirContents = {
+  'package.json': JSON.stringify({
+    dependencies: {
+      'abbrev': '*',
+      'tap': '*'
+    },
+    optionalDependencies: {
+      'abbrev': '*'
+    }
+  }),
+  node_modules: {}
+}
 
-fs.writeFileSync(path.resolve(testdir, 'package.json'), JSON.stringify({
-  dependencies: {
-    'abbrev': '*',
-    'tap': '*'
-  },
-  optionalDependencies: {
-    'abbrev': '*'
+for (const fakedep of ['mocha', 'tap', 'async', 'foobar']) {
+  testdirContents.node_modules[fakedep] = {
+    'package.json': JSON.stringify({
+      name: fakedep,
+      version: '1.0.0'
+    })
   }
-}))
-
-var fakedeps = ['mocha', 'tap', 'async', 'foobar']
-
-fakedeps.forEach(function(dep) {
-  var depdir = path.resolve(testdir, 'node_modules', dep)
-  mkdirp.sync(depdir)
-
-  fs.writeFileSync(path.resolve(depdir, 'package.json'), JSON.stringify({
-    name: dep,
-    version: '1.0.0'
-  }))
-})
+}
+console.log(testdirContents)
+const testdir = tap.testdir(testdirContents)
 
 const log = console.log
 console.log = function () {}
@@ -66,6 +63,5 @@ tap.test('read in dependencies and dev deps', function (t) {
 
 tap.test('teardown', function (t) {
   console.log = log
-  process.chdir(origwd)
-  rimraf(testdir, t.end.bind(t))
+  t.end()
 })

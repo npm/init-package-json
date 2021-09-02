@@ -1,18 +1,23 @@
 {
   "name": "init-package-json",
   "version": "2.0.4",
-  "main": "init-package-json.js",
+  "main": "lib/init-package-json.js",
   "scripts": {
     "test": "tap",
     "preversion": "npm test",
     "postversion": "npm publish",
-    "prepublishOnly": "git push origin --follow-tags"
+    "prepublishOnly": "git push origin --follow-tags",
+    "lint": "eslint '**/*.js'",
+    "postlint": "npm-template-check",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "posttest": "npm run lint"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/npm/init-package-json.git"
   },
-  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
+  "author": "GitHub Inc.",
   "license": "ISC",
   "description": "A node module to get your node module started",
   "dependencies": {
@@ -27,6 +32,7 @@
   },
   "devDependencies": {
     "@npmcli/config": "^2.1.0",
+    "@npmcli/template-oss": "^1.0.3",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "tap": "^15.0.9"
@@ -35,7 +41,9 @@
     "node": ">=10"
   },
   "tap": {
-    "jobs": "1"
+    "statements": 94,
+    "branches": 83,
+    "lines": 96
   },
   "keywords": [
     "init",
@@ -48,12 +56,8 @@
     "start"
   ],
   "files": [
-    "default-input.js",
-    "init-package-json.js"
+    "bin",
+    "lib"
   ],
-  "tap": {
-    "statements": 94,
-    "branches": 83,
-    "lines": 96
-  }
+  "templateVersion": "1.0.3"
 }
