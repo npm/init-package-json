@@ -2,6 +2,9 @@ const { resolve } = require('path')
 const t = require('tap')
 const init = require('../')
 
+const log = console.log
+console.log = function () {}
+
 t.test('replaces spaces for hyphens', t => {
   const dir = t.testdir({
     'name with spaces': {}
@@ -42,4 +45,9 @@ t.test('capital letters and multiple spaces', t => {
     t.equal(data.name, 'capital-letters-and-multiple-spaces')
     t.end()
   })
+})
+
+t.test('teardown', function (t) {
+  console.log = log
+  t.end()
 })

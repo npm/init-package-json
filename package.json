@@ -29,7 +29,7 @@
     "@npmcli/config": "^2.1.0",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
-    "tap": "^14.11.0"
+    "tap": "^15.0.9"
   },
   "engines": {
     "node": ">=10"
@@ -50,5 +50,10 @@
   "files": [
     "default-input.js",
     "init-package-json.js"
-  ]
+  ],
+  "tap": {
+    "statements": 94,
+    "branches": 83,
+    "lines": 96
+  }
 }

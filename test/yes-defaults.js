@@ -13,6 +13,9 @@ var EXPECT = {
     license: 'ISC'
 }
 
+const log = console.log
+console.log = function () {}
+
 tap.test('--yes defaults', function (t) {
   init(__dirname, __dirname, {yes: 'yes'}, function (er, data) {
     if (er) throw er
@@ -24,4 +27,9 @@ tap.test('--yes defaults', function (t) {
 
 tap.test('teardown', function (t) {
   rimraf(__dirname + '/package.json', t.end.bind(t))
+})
+
+tap.test('teardown', function (t) {
+  console.log = log
+  t.end()
 })

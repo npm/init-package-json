@@ -99,6 +99,9 @@ const EXPECTED = {
   license: 'WTFPL'
 }
 
+const log = console.log
+console.log = function () {}
+
 t.test('npm configuration values pulled from environment', async t => {
   /*eslint camelcase:0 */
   const env = {
@@ -129,7 +132,6 @@ t.test('npm configuration values pulled from environment', async t => {
   })
 
   await conf.load()
-  console.error(conf.data)
 
   const _cwd = process.cwd()
   t.teardown(() => process.chdir(_cwd))
@@ -213,4 +215,9 @@ init-version=${EXPECTED.version}`
 
   const data = await init(cwd, cwd, conf)
   t.same(data, EXPECTED, 'got the package data from the config')
+})
+
+t.test('teardown', function (t) {
+  console.log = log
+  t.end()
 })

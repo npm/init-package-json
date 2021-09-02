@@ -3,6 +3,9 @@ const t = require('tap')
 const init = require('../')
 const common = require('./lib/common')
 
+const log = console.log
+console.log = function () {}
+
 t.test('single space', t => {
   const dir = t.testdir({})
 
@@ -18,7 +21,6 @@ t.test('single space', t => {
       author: '',
       main: 'index.js'
     }
-    console.log('')
     t.has(data, wanted)
     t.end()
   })
@@ -53,7 +55,6 @@ t.test('multiple spaces', t => {
       author: '',
       main: 'index.js'
     }
-    console.log('')
     t.has(data, wanted)
     t.end()
   })
@@ -71,4 +72,9 @@ t.test('multiple spaces', t => {
     '\n',
     'yes\n'
   ])
+})
+
+t.test('teardown', function (t) {
+  console.log = log
+  t.end()
 })

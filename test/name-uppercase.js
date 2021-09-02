@@ -3,6 +3,9 @@ var init = require('../')
 var rimraf = require('rimraf')
 var common = require('./lib/common')
 
+const log = console.log
+console.log = function () {}
+
 test('uppercase', function (t) {
   init(__dirname, '', {}, function (er, data) {
     if (er)
@@ -17,7 +20,6 @@ test('uppercase', function (t) {
       author: '',
       main: 'basic.js'
     }
-    console.log('')
     t.has(data, wanted)
     t.end()
   })
@@ -37,5 +39,6 @@ test('uppercase', function (t) {
 })
 
 test('teardown', function (t) {
+  console.log = log
   rimraf(__dirname + '/package.json', t.end.bind(t))
 })

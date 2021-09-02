@@ -13,13 +13,15 @@ var EXPECT = {
     package: {}
 }
 
+const log = console.log
+console.log = function () {}
+
 tap.test('the scope', function (t) {
   var i = __dirname + '/basic.input'
   var dir = __dirname
   init(dir, i, {scope: '@foo'}, function (er, data) {
     if (er) throw er
 
-    console.log('')
     t.has(data, EXPECT)
     t.end()
   })
@@ -35,5 +37,6 @@ tap.test('the scope', function (t) {
 })
 
 tap.test('teardown', function (t) {
+  console.log = log
   rimraf(__dirname + '/package.json', t.end.bind(t))
 })

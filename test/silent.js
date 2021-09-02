@@ -12,7 +12,7 @@ tap.test('silent: true', function (t) {
   init(__dirname, __dirname, {yes: 'yes', silent: true}, function (er, data) {
     if (er) throw er
 
-    t.false(logged, 'did not print anything')
+    t.notOk(logged, 'did not print anything')
     t.end()
   })
 })

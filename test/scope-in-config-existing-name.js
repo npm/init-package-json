@@ -11,20 +11,21 @@ var json = {
   version: '1.0.0'
 }
 
+const log = console.log
+console.log = function () {}
+
 tap.test('with existing package.json', function (t) {
   fs.writeFileSync(path.join(__dirname, 'package.json'), JSON.stringify(json, null, 2))
-  console.log(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'))
-  console.error('wrote json', json)
   init(__dirname, __dirname, { yes: 'yes', scope: '@still' }, function (er, data) {
     if (er) throw er
 
-    console.log('')
     t.equal(data.name, '@still/scoped', 'new scope is added, basic name is kept')
     t.end()
   })
 })
 
 tap.test('teardown', function (t) {
+  console.log = log
   rimraf.sync(path.join(__dirname, 'package.json'))
   t.end()
 })

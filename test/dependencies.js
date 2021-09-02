@@ -52,6 +52,9 @@ fakedeps.forEach(function(dep) {
   }))
 })
 
+const log = console.log
+console.log = function () {}
+
 tap.test('read in dependencies and dev deps', function (t) {
   init(testdir, testdir, {yes: 'yes', 'save-prefix': '^'}, function (er, data) {
     if (er) throw er
@@ -62,6 +65,7 @@ tap.test('read in dependencies and dev deps', function (t) {
 })
 
 tap.test('teardown', function (t) {
+  console.log = log
   process.chdir(origwd)
   rimraf(testdir, t.end.bind(t))
 })

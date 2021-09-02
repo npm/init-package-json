@@ -17,17 +17,20 @@ var EXPECT = {
     license: 'ISC'
 }
 
+const log = console.log
+console.log = function () {}
+
 tap.test('--yes with scope', function (t) {
   init(__dirname, __dirname, { yes: 'yes', scope: '@scoped' }, function (er, data) {
     if (er) throw er
 
-    console.log('')
     t.has(data, EXPECT)
     t.end()
   })
 })
 
 tap.test('teardown', function (t) {
+  console.log = log
   rimraf.sync(path.join(__dirname, 'package.json'))
   t.end()
 })
