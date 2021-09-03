@@ -1,5 +1,6 @@
 const { resolve } = require('path')
 const { promisify } = require('util')
+const cwd = process.cwd()
 
 const t = require('tap')
 
@@ -99,10 +100,10 @@ const EXPECTED = {
   license: 'WTFPL',
 }
 
-const log = console.log
-console.log = function () {}
-
 t.test('npm configuration values pulled from environment', async t => {
+  t.teardown(() => {
+    process.chdir(cwd)
+  })
   /* eslint camelcase:0 */
   const env = {
     npm_config_yes: 'yes',
@@ -113,7 +114,7 @@ t.test('npm configuration values pulled from environment', async t => {
     npm_config_init_version: EXPECTED.version,
   }
 
-  const cwd = t.testdir({
+  const testdir = t.testdir({
     npm: {},
     'package.json': JSON.stringify({
       name: EXPECTED.name,
@@ -125,24 +126,25 @@ t.test('npm configuration values pulled from environment', async t => {
   const conf = new Config({
     env,
     argv: [],
-    cwd,
-    npmPath: resolve(cwd, 'npm'),
+    cwd: testdir,
+    npmPath: resolve(testdir, 'npm'),
     definitions,
     shorthands,
   })
 
   await conf.load()
 
-  const _cwd = process.cwd()
-  t.teardown(() => process.chdir(_cwd))
-  process.chdir(cwd)
+  process.chdir(testdir)
 
-  const data = await init(cwd, cwd, conf)
+  const data = await init(testdir, testdir, conf)
   t.same(data, EXPECTED, 'got the package data from the environment')
 })
 
 t.test('npm configuration values pulled from dotted config', async t => {
-  const cwd = t.testdir({
+  t.teardown(() => {
+    process.chdir(cwd)
+  })
+  const testdir = t.testdir({
     npm: {},
     'package.json': JSON.stringify({
       name: EXPECTED.name,
@@ -163,24 +165,25 @@ init.version=${EXPECTED.version}`,
   const conf = new Config({
     env: {},
     argv: [],
-    cwd,
-    npmPath: resolve(cwd, 'npm'),
+    cwd: testdir,
+    npmPath: resolve(testdir, 'npm'),
     definitions,
     shorthands,
   })
 
   await conf.load()
 
-  const _cwd = process.cwd()
-  t.teardown(() => process.chdir(_cwd))
-  process.chdir(cwd)
+  process.chdir(testdir)
 
-  const data = await init(cwd, cwd, conf)
+  const data = await init(testdir, testdir, conf)
   t.same(data, EXPECTED, 'got the package data from the config')
 })
 
 t.test('npm configuration values pulled from dashed config', async t => {
-  const cwd = t.testdir({
+  t.teardown(() => {
+    process.chdir(cwd)
+  })
+  const testdir = t.testdir({
     npm: {},
     'package.json': JSON.stringify({
       name: EXPECTED.name,
@@ -201,23 +204,16 @@ init-version=${EXPECTED.version}`,
   const conf = new Config({
     env: {},
     argv: [],
-    cwd,
-    npmPath: resolve(cwd, 'npm'),
+    cwd: testdir,
+    npmPath: resolve(testdir, 'npm'),
     definitions,
     shorthands,
   })
 
   await conf.load()
 
-  const _cwd = process.cwd()
-  t.teardown(() => process.chdir(_cwd))
-  process.chdir(cwd)
+  process.chdir(testdir)
 
-  const data = await init(cwd, cwd, conf)
+  const data = await init(testdir, testdir, conf)
   t.same(data, EXPECTED, 'got the package data from the config')
-})
-
-t.test('teardown', function (t) {
-  console.log = log
-  t.end()
 })

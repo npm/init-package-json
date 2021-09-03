@@ -1,18 +1,15 @@
-var test = require('tap').test
-var init = require('../')
-var common = require('./lib/common')
-
-const log = console.log
-console.log = function () {}
+const test = require('tap').test
+const init = require('../')
 
 test('license', function (t) {
   const testdir = t.testdir({})
+  // process.chdir(testdir)
   init(testdir, '', {}, function (er, data) {
     if (er) {
       throw er
     }
 
-    var wanted = {
+    const wanted = {
       name: 'the-name',
       version: '1.0.0',
       description: '',
@@ -24,22 +21,19 @@ test('license', function (t) {
     t.has(data, wanted)
     t.end()
   })
-  common.drive([
-    'the-name\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    'Apache\n',
-    'Apache-2.0\n',
-    'yes\n',
-  ])
-})
-
-test('teardown', function (t) {
-  console.log = log
-  t.end()
+  for (const line of [
+    'the-name\n', // package name
+    '\n', // version
+    '\n', // description
+    '\n', // entry point
+    '\n', // test
+    '\n', // git repo
+    '\n', // keywords
+    '\n', // author
+    'Apache\n', // license
+    'Apache-2.0\n', // license
+    'yes\n', // about to write
+  ]) {
+    process.stdin.push(line)
+  }
 })

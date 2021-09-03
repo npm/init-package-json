@@ -2,30 +2,28 @@ const { resolve } = require('path')
 const t = require('tap')
 const init = require('../')
 
-const log = console.log
-console.log = function () {}
-
 t.test('replaces spaces for hyphens', t => {
-  const dir = t.testdir({
+  const testdir = t.testdir({
     'name with spaces': {},
   })
+  // process.chdir(testdir)
 
-  init(resolve(dir, 'name with spaces'), '', { yes: 'yes' }, (er, data) => {
+  init(resolve(testdir, 'name with spaces'), '', { yes: 'yes' }, (er, data) => {
     if (er) {
       throw er
     }
-
     t.equal(data.name, 'name-with-spaces')
     t.end()
   })
 })
 
 t.test('removes node- and .js', t => {
-  const dir = t.testdir({
+  const testdir = t.testdir({
     'node-package.js': {},
   })
+  // process.chdir(testdir)
 
-  init(resolve(dir, 'node-package.js'), '', { yes: 'yes' }, (er, data) => {
+  init(resolve(testdir, 'node-package.js'), '', { yes: 'yes' }, (er, data) => {
     if (er) {
       throw er
     }
@@ -36,11 +34,12 @@ t.test('removes node- and .js', t => {
 })
 
 t.test('capital letters and multiple spaces', t => {
-  const dir = t.testdir({
+  const testdir = t.testdir({
     'capital letters and  multiple   spaces': {},
   })
+  // process.chdir(testdir)
 
-  init(resolve(dir, 'capital letters and  multiple   spaces'), '', { yes: 'yes' }, (er, data) => {
+  init(resolve(testdir, 'capital letters and  multiple   spaces'), '', { yes: 'yes' }, (er, data) => {
     if (er) {
       throw er
     }
@@ -48,9 +47,4 @@ t.test('capital letters and multiple spaces', t => {
     t.equal(data.name, 'capital-letters-and-multiple-spaces')
     t.end()
   })
-})
-
-t.test('teardown', function (t) {
-  console.log = log
-  t.end()
 })

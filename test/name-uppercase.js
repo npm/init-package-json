@@ -1,9 +1,5 @@
-var test = require('tap').test
-var init = require('../')
-var common = require('./lib/common')
-
-const log = console.log
-console.log = function () {}
+const test = require('tap').test
+const init = require('../')
 
 test('uppercase', function (t) {
   const testdir = t.testdir({})
@@ -12,7 +8,7 @@ test('uppercase', function (t) {
       throw er
     }
 
-    var wanted = {
+    const EXPECT = {
       name: 'the-name',
       version: '1.0.0',
       description: '',
@@ -21,10 +17,10 @@ test('uppercase', function (t) {
       author: '',
       main: 'index.js',
     }
-    t.has(data, wanted)
+    t.has(data, EXPECT)
     t.end()
   })
-  common.drive([
+  for (const line of [
     'THE-NAME\n',
     'the-name\n',
     '\n',
@@ -36,10 +32,7 @@ test('uppercase', function (t) {
     '\n',
     '\n',
     'yes\n',
-  ])
-})
-
-test('teardown', function (t) {
-  console.log = log
-  t.end()
+  ]) {
+    process.stdin.push(line)
+  }
 })

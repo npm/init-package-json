@@ -1,24 +1,21 @@
-var common = require('./lib/common')
-var init = require('../')
-var t = require('tap')
-
-const log = console.log
-console.log = function () {}
+const init = require('../')
+const t = require('tap')
 
 t.test('auto bin population', function (t) {
-  const dir = t.testdir({
+  const testdir = t.testdir({
     bin: {
       'run.js': '',
     },
   })
-  init(dir, '', {}, (er, data) => {
+  // process.chdir(testdir)
+  init(testdir, '', {}, (er, data) => {
     if (er) {
       throw er
     }
     t.same(data.bin, { 'auto-bin-test': 'bin/run.js' }, 'bin auto populated with correct path')
     t.end()
   })
-  common.drive([
+  for (const line of [
     'auto-bin-test\n',
     '\n',
     '\n',
@@ -29,10 +26,8 @@ t.test('auto bin population', function (t) {
     '\n',
     '\n',
     'yes\n',
-  ])
-})
-
-t.test('teardown', function (t) {
-  console.log = log
-  t.end()
+    'dummy\n',
+  ]) {
+    process.stdin.push(line)
+  }
 })
