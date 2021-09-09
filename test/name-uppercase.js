@@ -1,27 +1,26 @@
-var test = require('tap').test
-var init = require('../')
-var rimraf = require('rimraf')
-var common = require('./lib/common')
+const test = require('tap').test
+const init = require('../')
 
 test('uppercase', function (t) {
-  init(__dirname, '', {}, function (er, data) {
-    if (er)
+  const testdir = t.testdir({})
+  init(testdir, '', {}, function (er, data) {
+    if (er) {
       throw er
+    }
 
-    var wanted = {
+    const EXPECT = {
       name: 'the-name',
       version: '1.0.0',
       description: '',
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'basic.js'
+      main: 'index.js',
     }
-    console.log('')
-    t.has(data, wanted)
+    t.has(data, EXPECT)
     t.end()
   })
-  common.drive([
+  for (const line of [
     'THE-NAME\n',
     'the-name\n',
     '\n',
@@ -32,10 +31,8 @@ test('uppercase', function (t) {
     '\n',
     '\n',
     '\n',
-    'yes\n'
-  ])
-})
-
-test('teardown', function (t) {
-  rimraf(__dirname + '/package.json', t.end.bind(t))
+    'yes\n',
+  ]) {
+    process.stdin.push(line)
+  }
 })

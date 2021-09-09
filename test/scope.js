@@ -1,8 +1,13 @@
-var tap = require('tap')
-var init = require('../')
-var rimraf = require('rimraf')
+const tap = require('tap')
+const init = require('../')
+const path = require('path')
+const cwd = process.cwd()
 
-var EXPECT = {
+tap.test('the scope', function (t) {
+  const testdir = tap.testdir({})
+  // process.chdir(testdir)
+
+  const EXPECT = {
     name: '@foo/test',
     version: '1.2.5',
     description: 'description',
@@ -10,30 +15,22 @@ var EXPECT = {
     scripts: { test: 'make test' },
     main: 'main.js',
     config: { scope: '@foo' },
-    package: {}
-}
+    package: {},
+  }
 
-tap.test('the scope', function (t) {
-  var i = __dirname + '/basic.input'
-  var dir = __dirname
-  init(dir, i, {scope: '@foo'}, function (er, data) {
-    if (er) throw er
+  init(testdir, path.join(cwd, 'test/basic.input'), {scope: '@foo'}, function (er, data) {
+    if (er) {
+      throw er
+    }
 
-    console.log('')
     t.has(data, EXPECT)
     t.end()
   })
-  setTimeout(function () {
-    process.stdin.emit('data', '@foo/test\n')
-  }, 50)
-  setTimeout(function () {
-    process.stdin.emit('data', 'description\n')
-  }, 100)
-  setTimeout(function () {
-    process.stdin.emit('data', 'yes\n')
-  }, 150)
-})
-
-tap.test('teardown', function (t) {
-  rimraf(__dirname + '/package.json', t.end.bind(t))
+  for (const line of [
+    '@foo/test\n',
+    'description\n',
+    'yes\n',
+  ]) {
+    process.stdin.push(line)
+  }
 })

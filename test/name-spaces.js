@@ -1,14 +1,44 @@
-const { resolve } = require('path')
 const t = require('tap')
 const init = require('../')
-const common = require('./lib/common')
+
+// see comment in test/basic.js
+for (const line of [
+  // single space
+  'the name\n', // package name
+  'the-name\n', // package name
+  '\n', // version
+  '\n', // description
+  '\n', // entry point
+  '\n', // test
+  '\n', // git repo
+  '\n', // keywords
+  '\n', // author
+  '\n', // license
+  'yes\n', // about to write
+  // multiple spaces
+  'the name should be this\n', // package name
+  'the-name-should-be-this\n', // package name
+  '\n', // version
+  '\n', // description
+  '\n', // entry point
+  '\n', // test
+  '\n', // git repo
+  '\n', // keywords
+  '\n', // author
+  '\n', // license
+  'yes\n', // about to write
+]) {
+  process.stdin.push(line)
+}
 
 t.test('single space', t => {
-  const dir = t.testdir({})
+  const testdir = t.testdir({})
+  // process.chdir(testdir)
 
-  init(dir, '', {}, (er, data) => {
-    if (er)
+  init(testdir, '', {}, (er, data) => {
+    if (er) {
       throw er
+    }
     const wanted = {
       name: 'the-name',
       version: '1.0.0',
@@ -16,34 +46,21 @@ t.test('single space', t => {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'index.js'
+      main: 'index.js',
     }
-    console.log('')
     t.has(data, wanted)
     t.end()
   })
-
-  common.drive([
-    'the name\n',
-    'the-name\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    'yes\n'
-  ])
 })
 
 t.test('multiple spaces', t => {
-  const dir = t.testdir({})
+  const testdir = t.testdir({})
+  // process.chdir(testdir)
 
-  init(dir, '', {}, (er, data) => {
-    if (er)
+  init(testdir, '', {}, (er, data) => {
+    if (er) {
       throw er
+    }
     const wanted = {
       name: 'the-name-should-be-this',
       version: '1.0.0',
@@ -51,24 +68,9 @@ t.test('multiple spaces', t => {
       scripts: { test: 'echo "Error: no test specified" && exit 1' },
       license: 'ISC',
       author: '',
-      main: 'index.js'
+      main: 'index.js',
     }
-    console.log('')
     t.has(data, wanted)
     t.end()
   })
-
-  common.drive([
-    'the name should be this\n',
-    'the-name-should-be-this\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    'yes\n'
-  ])
 })

@@ -1,33 +1,26 @@
-var fs = require('fs')
-var path = require('path')
-
-var rimraf = require('rimraf')
 var tap = require('tap')
-
 var init = require('../')
 
-var EXPECT = {
-    name: '@scoped/test',
+tap.test('--yes with scope', function (t) {
+  const testdir = t.testdir({})
+  // process.chdir(testdir)
+  var EXPECT = {
+    name: '@scoped/tap-testdir-scope-in-config---yes-with-scope',
     version: '1.0.0',
     description: '',
     author: '',
-    scripts: { test: 'echo \"Error: no test specified\" && exit 1' },
-    main: 'basic.js',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    main: 'index.js',
     keywords: [],
-    license: 'ISC'
-}
+    license: 'ISC',
+  }
 
-tap.test('--yes with scope', function (t) {
-  init(__dirname, __dirname, { yes: 'yes', scope: '@scoped' }, function (er, data) {
-    if (er) throw er
+  init(testdir, testdir, { yes: 'yes', scope: '@scoped' }, function (er, data) {
+    if (er) {
+      throw er
+    }
 
-    console.log('')
     t.has(data, EXPECT)
     t.end()
   })
-})
-
-tap.test('teardown', function (t) {
-  rimraf.sync(path.join(__dirname, 'package.json'))
-  t.end()
 })
