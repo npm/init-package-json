@@ -39,12 +39,17 @@ t.test('capital letters and multiple spaces', t => {
   })
   // process.chdir(testdir)
 
-  init(resolve(testdir, 'capital letters and  multiple   spaces'), '', { yes: 'yes' }, (er, data) => {
-    if (er) {
-      throw er
-    }
+  init(
+    resolve(testdir, 'capital letters and  multiple   spaces'),
+    '',
+    { yes: 'yes' },
+    (er, data) => {
+      if (er) {
+        throw er
+      }
 
-    t.equal(data.name, 'capital-letters-and-multiple-spaces')
-    t.end()
-  })
+      t.equal(data.name, 'capital-letters-and-multiple-spaces')
+      t.end()
+    }
+  )
 })

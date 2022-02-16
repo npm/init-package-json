@@ -18,7 +18,7 @@ tap.test('the scope', function (t) {
     package: {},
   }
 
-  init(testdir, path.join(cwd, 'test/basic.input'), {scope: '@foo'}, function (er, data) {
+  init(testdir, path.join(cwd, 'test/basic.input'), { scope: '@foo' }, function (er, data) {
     if (er) {
       throw er
     }

@@ -29,7 +29,7 @@ tap.test('read in dependencies and dev deps', function (t) {
   t.teardown(() => {
     process.chdir(cwd)
   })
-  init(testdir, '', {yes: 'yes', 'save-prefix': '^'}, function (er, data) {
+  init(testdir, '', { yes: 'yes', 'save-prefix': '^' }, function (er, data) {
     if (er) {
       throw er
     }
