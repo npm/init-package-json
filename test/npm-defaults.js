@@ -7,6 +7,12 @@ const t = require('tap')
 // npm config
 const Config = require('@npmcli/config')
 const definitions = {
+  registry: {
+    key: 'registry',
+    description: 'registry',
+    default: 'https://registry.npmjs.org/',
+    type: ['', Config.typeDefs.url.type],
+  },
   'init-module': {
     key: 'init-module',
     description: 'init module config',
