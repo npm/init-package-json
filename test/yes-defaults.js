@@ -14,7 +14,7 @@ tap.test('--yes defaults', function (t) {
     keywords: [],
     license: 'ISC',
   }
-  init(testdir, testdir, {yes: 'yes'}, function (er, data) {
+  init(testdir, testdir, { yes: 'yes' }, function (er, data) {
     if (er) {
       throw er
     }

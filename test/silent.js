@@ -13,7 +13,7 @@ tap.test('silent: true', function (t) {
   t.teardown(() => {
     console.log = log
   })
-  init(testdir, testdir, {yes: 'yes', silent: true}, function (er, data) {
+  init(testdir, testdir, { yes: 'yes', silent: true }, function (er, data) {
     if (er) {
       throw er
     }
