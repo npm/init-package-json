@@ -33,7 +33,7 @@
   "devDependencies": {
     "@npmcli/config": "^4.0.0",
     "@npmcli/template-oss": "^2.7.1",
-    "tap": "^15.0.9"
+    "tap": "^15.1.6"
   },
   "engines": {
     "node": "^12.13.0 || ^14.15.0 || >=16"
