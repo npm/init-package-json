@@ -1,6 +1,19 @@
 # Change Log
 
 <a name="2.0.0"></a>
+## [3.0.0](https://www.github.com/npm/init-package-json/compare/v2.0.5...v3.0.0) (2022-02-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* this drops support for node10 and non-LTS versions of node12 and node14
+
+### Dependencies
+
+* @npmcli/template-oss@2.7.1 ([257ba39](https://www.github.com/npm/init-package-json/commit/257ba391909a7220da964128836b40b14728fab3))
+* npm-package-arg@9.0.0, @npmcli/config@4.0.0 ([5e744c8](https://www.github.com/npm/init-package-json/commit/5e744c8269a75acfb93ce00a8472532873ffdb47))
+* update read requirement from ~1.0.1 to ^1.0.7 ([4425b9a](https://www.github.com/npm/init-package-json/commit/4425b9af9ba4136f4df13ad84cfb541312d4eadf))
+
 ## [2.0.0](https://github.com/npm/init-package-json/compare/v1.10.3...v2.0.0) (2020-10-09)
 * BREAKING: requires node10+
 * fix: compat with new `@npmcli/config` module
