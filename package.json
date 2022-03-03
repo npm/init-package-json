@@ -31,7 +31,7 @@
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
-    "@npmcli/config": "^4.0.0",
+    "@npmcli/config": "^4.0.1",
     "@npmcli/template-oss": "^2.8.1",
     "tap": "^15.1.6"
   },
