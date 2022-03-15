@@ -1,6 +1,13 @@
 # Change Log
 
 <a name="2.0.0"></a>
+### [3.0.1](https://www.github.com/npm/init-package-json/compare/v3.0.0...v3.0.1) (2022-03-15)
+
+
+### Dependencies
+
+* bump read-package-json from 4.1.2 to 5.0.0 ([#134](https://www.github.com/npm/init-package-json/issues/134)) ([3b7a109](https://www.github.com/npm/init-package-json/commit/3b7a1099ee0241e8dc1f0ff95eca999a699699fc))
+
 ## [3.0.0](https://www.github.com/npm/init-package-json/compare/v2.0.5...v3.0.0) (2022-02-16)
 
 
