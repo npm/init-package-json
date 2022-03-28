@@ -1,6 +1,5 @@
-# Change Log
+# Changelog
 
-<a name="2.0.0"></a>
 ### [3.0.1](https://www.github.com/npm/init-package-json/compare/v3.0.0...v3.0.1) (2022-03-15)
 
 
