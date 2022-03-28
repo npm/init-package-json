@@ -34,7 +34,7 @@
     "@npmcli/config": "^4.0.1",
     "@npmcli/eslint-config": "^3.0.1",
     "@npmcli/template-oss": "3.2.0",
-    "tap": "^15.1.6"
+    "tap": "^16.0.1"
   },
   "engines": {
     "node": "^12.13.0 || ^14.15.0 || >=16.0.0"
