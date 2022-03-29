@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.0.2](https://github.com/npm/init-package-json/compare/v3.0.1...v3.0.2) (2022-03-29)
+
+
+### Dependencies
+
+* bump validate-npm-package-name from 3.0.0 to 4.0.0 ([#144](https://github.com/npm/init-package-json/issues/144)) ([fa7574a](https://github.com/npm/init-package-json/commit/fa7574adb3672c8c7b537bf960c7860900828ecb))
+* update npm-package-arg requirement from ^9.0.0 to ^9.0.1 ([#136](https://github.com/npm/init-package-json/issues/136)) ([b1ec548](https://github.com/npm/init-package-json/commit/b1ec548592760fd95b6d60f98e61abe4fe84f09f))
+
 ### [3.0.1](https://www.github.com/npm/init-package-json/compare/v3.0.0...v3.0.1) (2022-03-15)
 
 
