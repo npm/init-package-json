@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.0.0](https://github.com/npm/init-package-json/compare/v3.0.2...v4.0.0) (2022-10-14)
+
+### ⚠️ BREAKING CHANGES
+
+* `init-package-json` is now compatible with the following semver range for node: `^14.17.0 || ^16.13.0 || >=18.0.0`
+
+### Features
+
+* [`e8ea83a`](https://github.com/npm/init-package-json/commit/e8ea83a9546678c63b8f4d842e0819fced2f7513) [#159](https://github.com/npm/init-package-json/pull/159) postinstall for dependabot template-oss PR (@lukekarrys)
+
+### Dependencies
+
+* [`b869b31`](https://github.com/npm/init-package-json/commit/b869b31550beb4a66f72e0232aee2b4e0225a282) [#170](https://github.com/npm/init-package-json/pull/170) bump read-package-json from 5.0.2 to 6.0.0 (#170)
+* [`d342821`](https://github.com/npm/init-package-json/commit/d342821532d3066b2db6f681e922131cd5943b01) [#168](https://github.com/npm/init-package-json/pull/168) bump validate-npm-package-name from 4.0.0 to 5.0.0 (#168)
+
 ### [3.0.2](https://github.com/npm/init-package-json/compare/v3.0.1...v3.0.2) (2022-03-29)
 
 
