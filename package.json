@@ -22,7 +22,7 @@
     "npm-package-arg": "^9.0.1",
     "promzard": "^0.3.0",
     "read": "^1.0.7",
-    "read-package-json": "^5.0.0",
+    "read-package-json": "^6.0.0",
     "semver": "^7.3.5",
     "validate-npm-package-license": "^3.0.4",
     "validate-npm-package-name": "^5.0.0"
