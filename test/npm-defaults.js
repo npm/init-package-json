@@ -139,6 +139,7 @@ t.test('npm configuration values pulled from environment', async t => {
   })
 
   await conf.load()
+  conf.validate()
 
   process.chdir(testdir)
 
@@ -178,6 +179,7 @@ init.version=${EXPECTED.version}`,
   })
 
   await conf.load()
+  conf.validate()
 
   process.chdir(testdir)
 
@@ -217,6 +219,7 @@ init-version=${EXPECTED.version}`,
   })
 
   await conf.load()
+  conf.validate()
 
   process.chdir(testdir)
 
