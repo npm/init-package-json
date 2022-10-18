@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.1](https://github.com/npm/init-package-json/compare/v4.0.0...v4.0.1) (2022-10-18)
+
+### Dependencies
+
+* [`4dea768`](https://github.com/npm/init-package-json/commit/4dea7685efa3a596eb04d2d4de21902efb0f6c84) [#172](https://github.com/npm/init-package-json/pull/172) bump npm-package-arg from 9.1.2 to 10.0.0
+
 ## [4.0.0](https://github.com/npm/init-package-json/compare/v3.0.2...v4.0.0) (2022-10-14)
 
 ### ⚠️ BREAKING CHANGES
