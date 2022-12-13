@@ -1,39 +1,35 @@
-const test = require('tap').test
-const init = require('../')
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-test('license', function (t) {
-  const testdir = t.testdir({})
-  // process.chdir(testdir)
-  init(testdir, '', {}, function (er, data) {
-    if (er) {
-      throw er
-    }
+if (isChild()) {
+  return child()
+}
 
-    const wanted = {
-      name: 'the-name',
-      version: '1.0.0',
-      description: '',
-      scripts: { test: 'echo "Error: no test specified" && exit 1' },
-      license: 'Apache-2.0',
-      author: '',
-      main: 'index.js',
-    }
-    t.has(data, wanted)
-    t.end()
+t.test('license', async (t) => {
+  const { data } = await setup(t, __filename, {
+    inputs: [
+      'the-name', // package name
+      '', // version
+      '', // description
+      '', // entry point
+      '', // test
+      '', // git repo
+      '', // keywords
+      '', // author
+      'Apache', // license
+      'Apache-2.0', // license
+      'yes', // about to write
+    ],
   })
-  for (const line of [
-    'the-name\n', // package name
-    '\n', // version
-    '\n', // description
-    '\n', // entry point
-    '\n', // test
-    '\n', // git repo
-    '\n', // keywords
-    '\n', // author
-    'Apache\n', // license
-    'Apache-2.0\n', // license
-    'yes\n', // about to write
-  ]) {
-    process.stdin.push(line)
+
+  const wanted = {
+    name: 'the-name',
+    version: '1.0.0',
+    description: '',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    license: 'Apache-2.0',
+    author: '',
+    main: 'index.js',
   }
+  t.has(data, wanted)
 })

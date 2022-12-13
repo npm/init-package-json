@@ -1,24 +1,14 @@
-const tap = require('tap')
-const init = require('../')
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-const log = console.log
+if (isChild()) {
+  return child()
+}
 
-tap.test('silent: true', function (t) {
-  const testdir = t.testdir({})
-  // process.chdir(testdir)
-  let logged = false
-  console.log = function () {
-    logged = true
-  }
-  t.teardown(() => {
-    console.log = log
+t.test('silent: true', async (t) => {
+  const { output } = await setup(t, __filename, {
+    config: { yes: 'yes', silent: true },
   })
-  init(testdir, testdir, { yes: 'yes', silent: true }, function (er, data) {
-    if (er) {
-      throw er
-    }
 
-    t.notOk(logged, 'did not print anything')
-    t.end()
-  })
+  t.equal(output, '', 'did not print anything')
 })

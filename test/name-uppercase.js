@@ -1,38 +1,35 @@
-const test = require('tap').test
-const init = require('../')
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-test('uppercase', function (t) {
-  const testdir = t.testdir({})
-  init(testdir, '', {}, function (er, data) {
-    if (er) {
-      throw er
-    }
+if (isChild()) {
+  return child()
+}
 
-    const EXPECT = {
-      name: 'the-name',
-      version: '1.0.0',
-      description: '',
-      scripts: { test: 'echo "Error: no test specified" && exit 1' },
-      license: 'ISC',
-      author: '',
-      main: 'index.js',
-    }
-    t.has(data, EXPECT)
-    t.end()
+t.test('uppercase', async (t) => {
+  const { data } = await setup(t, __filename, {
+    inputs: [
+      'THE-NAME',
+      'the-name',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      'yes',
+    ],
   })
-  for (const line of [
-    'THE-NAME\n',
-    'the-name\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    'yes\n',
-  ]) {
-    process.stdin.push(line)
+
+  const EXPECT = {
+    name: 'the-name',
+    version: '1.0.0',
+    description: '',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    license: 'ISC',
+    author: '',
+    main: 'index.js',
   }
+  t.has(data, EXPECT)
 })

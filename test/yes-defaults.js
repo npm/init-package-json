@@ -1,9 +1,11 @@
-const tap = require('tap')
-const init = require('../')
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-tap.test('--yes defaults', function (t) {
-  const testdir = t.testdir({})
-  // process.chdir(testdir)
+if (isChild()) {
+  return child()
+}
+
+t.test('--yes defaults', async (t) => {
   const EXPECT = {
     name: 'tap-testdir-yes-defaults---yes-defaults',
     version: '1.0.0',
@@ -14,12 +16,10 @@ tap.test('--yes defaults', function (t) {
     keywords: [],
     license: 'ISC',
   }
-  init(testdir, testdir, { yes: 'yes' }, function (er, data) {
-    if (er) {
-      throw er
-    }
 
-    t.has(data, EXPECT, 'used the default data')
-    t.end()
+  const { data } = await setup(t, __filename, {
+    config: { yes: 'yes' },
   })
+
+  t.has(data, EXPECT, 'used the default data')
 })

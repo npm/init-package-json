@@ -1,10 +1,12 @@
-var tap = require('tap')
-var init = require('../')
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-tap.test('--yes with scope', function (t) {
-  const testdir = t.testdir({})
-  // process.chdir(testdir)
-  var EXPECT = {
+if (isChild()) {
+  return child()
+}
+
+t.test('--yes with scope', async (t) => {
+  const EXPECT = {
     name: '@scoped/tap-testdir-scope-in-config---yes-with-scope',
     version: '1.0.0',
     description: '',
@@ -15,12 +17,9 @@ tap.test('--yes with scope', function (t) {
     license: 'ISC',
   }
 
-  init(testdir, testdir, { yes: 'yes', scope: '@scoped' }, function (er, data) {
-    if (er) {
-      throw er
-    }
-
-    t.has(data, EXPECT)
-    t.end()
+  const { data } = await setup(t, __filename, {
+    config: { yes: 'yes', scope: '@scoped' },
   })
+
+  t.has(data, EXPECT)
 })

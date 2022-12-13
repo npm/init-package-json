@@ -1,12 +1,11 @@
-const tap = require('tap')
-const init = require('../')
-const path = require('path')
-const cwd = process.cwd()
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-tap.test('the scope', function (t) {
-  const testdir = tap.testdir({})
-  // process.chdir(testdir)
+if (isChild()) {
+  return child()
+}
 
+t.test('the scope', async (t) => {
   const EXPECT = {
     name: '@foo/test',
     version: '1.2.5',
@@ -18,19 +17,15 @@ tap.test('the scope', function (t) {
     package: {},
   }
 
-  init(testdir, path.join(cwd, 'test/basic.input'), { scope: '@foo' }, function (er, data) {
-    if (er) {
-      throw er
-    }
-
-    t.has(data, EXPECT)
-    t.end()
+  const { data } = await setup(t, __filename, {
+    inputFile: 'basic',
+    config: { scope: '@foo' },
+    inputs: [
+      '@foo/test',
+      'description',
+      'yes',
+    ],
   })
-  for (const line of [
-    '@foo/test\n',
-    'description\n',
-    'yes\n',
-  ]) {
-    process.stdin.push(line)
-  }
+
+  t.has(data, EXPECT)
 })

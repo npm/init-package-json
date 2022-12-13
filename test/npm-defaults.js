@@ -1,11 +1,10 @@
+const t = require('tap')
 const { resolve } = require('path')
-const { promisify } = require('util')
+const Config = require('@npmcli/config')
+const init = require('../')
 const cwd = process.cwd()
 
-const t = require('tap')
-
 // npm config
-const Config = require('@npmcli/config')
 const definitions = {
   registry: {
     key: 'registry',
@@ -88,8 +87,6 @@ const definitions = {
 }
 const shorthands = {}
 
-const init = promisify(require('../'))
-
 const EXPECTED = {
   name: 'test',
   version: '3.1.4',
@@ -113,6 +110,7 @@ t.test('npm configuration values pulled from environment', async t => {
   /* eslint camelcase:0 */
   const env = {
     npm_config_yes: 'yes',
+    npm_config_silent: 'true',
     npm_config_init_author_name: 'npmbot',
     npm_config_init_author_email: 'n@p.m',
     npm_config_init_author_url: 'http://npm.im',
@@ -159,7 +157,8 @@ t.test('npm configuration values pulled from dotted config', async t => {
       directories: EXPECTED.directories,
     }),
     '.npmrc': `
-yes=true,
+yes=true
+silent=true
 
 init.author.name=npmbot
 init.author.email=n@p.m
@@ -199,7 +198,8 @@ t.test('npm configuration values pulled from dashed config', async t => {
       directories: EXPECTED.directories,
     }),
     '.npmrc': `
-yes=true,
+yes=true
+silent=true
 
 init-author-name=npmbot
 init-author-email=n@p.m
