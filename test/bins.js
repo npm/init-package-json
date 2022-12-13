@@ -1,33 +1,29 @@
-const init = require('../')
 const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-t.test('auto bin population', function (t) {
-  const testdir = t.testdir({
-    bin: {
-      'run.js': '',
+if (isChild()) {
+  return child()
+}
+
+t.test('auto bin population', async (t) => {
+  const { data } = await setup(t, __filename, {
+    testdir: {
+      bin: { 'run.js': '' },
     },
+    inputs: [
+      'auto-bin-test',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      'yes',
+      'dummy',
+    ],
   })
-  // process.chdir(testdir)
-  init(testdir, '', {}, (er, data) => {
-    if (er) {
-      throw er
-    }
-    t.same(data.bin, { 'auto-bin-test': 'bin/run.js' }, 'bin auto populated with correct path')
-    t.end()
-  })
-  for (const line of [
-    'auto-bin-test\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    '\n',
-    'yes\n',
-    'dummy\n',
-  ]) {
-    process.stdin.push(line)
-  }
+  t.same(data.bin, { 'auto-bin-test': 'bin/run.js' },
+    'bin auto populated with correct path')
 })

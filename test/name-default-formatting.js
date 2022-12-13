@@ -1,55 +1,42 @@
-const { resolve } = require('path')
 const t = require('tap')
-const init = require('../')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-t.test('replaces spaces for hyphens', t => {
-  const testdir = t.testdir({
-    'name with spaces': {},
-  })
-  // process.chdir(testdir)
+if (isChild()) {
+  return child()
+}
 
-  init(resolve(testdir, 'name with spaces'), '', { yes: 'yes' }, (er, data) => {
-    if (er) {
-      throw er
-    }
-    t.equal(data.name, 'name-with-spaces')
-    t.end()
+t.test('replaces spaces for hyphens', async t => {
+  const { data } = await setup(t, __filename, {
+    testdir: {
+      'name with spaces': {},
+    },
+    dir: 'name with spaces',
+    config: { yes: 'yes' },
   })
+
+  t.equal(data.name, 'name-with-spaces')
 })
 
-t.test('removes node- and .js', t => {
-  const testdir = t.testdir({
-    'node-package.js': {},
+t.test('removes node- and .js', async t => {
+  const { data } = await setup(t, __filename, {
+    testdir: {
+      'node-package.js': {},
+    },
+    dir: 'node-package.js',
+    config: { yes: 'yes' },
   })
-  // process.chdir(testdir)
 
-  init(resolve(testdir, 'node-package.js'), '', { yes: 'yes' }, (er, data) => {
-    if (er) {
-      throw er
-    }
-
-    t.equal(data.name, 'package')
-    t.end()
-  })
+  t.equal(data.name, 'package')
 })
 
-t.test('capital letters and multiple spaces', t => {
-  const testdir = t.testdir({
-    'capital letters and  multiple   spaces': {},
+t.test('capital letters and multiple spaces', async t => {
+  const { data } = await setup(t, __filename, {
+    testdir: {
+      'capital letters and  multiple   spaces': {},
+    },
+    dir: 'capital letters and  multiple   spaces',
+    config: { yes: 'yes' },
   })
-  // process.chdir(testdir)
 
-  init(
-    resolve(testdir, 'capital letters and  multiple   spaces'),
-    '',
-    { yes: 'yes' },
-    (er, data) => {
-      if (er) {
-        throw er
-      }
-
-      t.equal(data.name, 'capital-letters-and-multiple-spaces')
-      t.end()
-    }
-  )
+  t.equal(data.name, 'capital-letters-and-multiple-spaces')
 })

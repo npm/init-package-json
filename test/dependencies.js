@@ -1,8 +1,11 @@
-const tap = require('tap')
-const init = require('../')
-const cwd = process.cwd()
+const t = require('tap')
+const { setup, child, isChild } = require('./fixtures/setup')
 
-tap.test('read in dependencies and dev deps', function (t) {
+if (isChild()) {
+  return child({ chdir: true })
+}
+
+t.test('read in dependencies and dev deps', async (t) => {
   const testdirContents = {
     'package.json': JSON.stringify({
       dependencies: {
@@ -24,36 +27,29 @@ tap.test('read in dependencies and dev deps', function (t) {
       }),
     }
   }
-  const testdir = t.testdir(testdirContents)
-  process.chdir(testdir)
-  t.teardown(() => {
-    process.chdir(cwd)
-  })
-  init(testdir, '', { yes: 'yes', 'save-prefix': '^' }, function (er, data) {
-    if (er) {
-      throw er
-    }
 
-    const EXPECT = {
-      name: 'tap-testdir-dependencies-read-in-dependencies-and-dev-deps',
-      version: '1.0.0',
-      description: '',
-      author: '',
-      scripts: { test: 'mocha' },
-      main: 'index.js',
-      keywords: [],
-      license: 'ISC',
-      dependencies: {
-        tap: '*',
-      },
-      devDependencies: {
-        mocha: '^1.0.0',
-      },
-      optionalDependencies: {
-        abbrev: '*',
-      },
-    }
-    t.same(data, EXPECT, 'used the correct dependency information')
-    t.end()
+  const { data } = await setup(t, __filename, {
+    testdir: testdirContents,
+    config: { yes: 'yes', 'save-prefix': '^' },
   })
+
+  t.same(data, {
+    name: 'tap-testdir-dependencies-read-in-dependencies-and-dev-deps',
+    version: '1.0.0',
+    description: '',
+    author: '',
+    scripts: { test: 'mocha' },
+    main: 'index.js',
+    keywords: [],
+    license: 'ISC',
+    dependencies: {
+      tap: '*',
+    },
+    devDependencies: {
+      mocha: '^1.0.0',
+    },
+    optionalDependencies: {
+      abbrev: '*',
+    },
+  }, 'used the correct dependency information')
 })
