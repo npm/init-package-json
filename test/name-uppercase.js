@@ -8,8 +8,8 @@ if (isChild()) {
 t.test('uppercase', async (t) => {
   const { data } = await setup(t, __filename, {
     inputs: [
-      'THE-NAME',
-      'the-name',
+      [/name: \(.*\) $/, 'THE-NAME'],
+      [/name: \(.*\) $/, 'the-name'],
       '',
       '',
       '',

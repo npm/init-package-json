@@ -8,8 +8,8 @@ if (isChild()) {
 t.test('single space', async t => {
   const { data } = await setup(t, __filename, {
     inputs: [
-      'the name', // package name
-      'the-name', // package name
+      [/name: \(.*\) $/, 'the name'], // invalid package name
+      [/name: \(.*\) $/, 'the-name'], // package name
       '', // version
       '', // description
       '', // entry point
@@ -37,8 +37,8 @@ t.test('single space', async t => {
 t.test('multiple spaces', async t => {
   const { data } = await setup(t, __filename, {
     inputs: [
-      'the name should be this', // package name
-      'the-name-should-be-this', // package name
+      [/name: \(.*\) $/, 'the name should be this'], // invalid package name
+      [/name: \(.*\) $/, 'the-name-should-be-this'], // package name
       '', // version
       '', // description
       '', // entry point
