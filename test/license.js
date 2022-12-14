@@ -16,8 +16,8 @@ t.test('license', async (t) => {
       '', // git repo
       '', // keywords
       '', // author
-      'Apache', // license
-      'Apache-2.0', // license
+      [/license: \(.*\) $/, 'Apache'], // invalid license
+      [/license: \(.*\) $/, 'Apache-2.0'], // license
       'yes', // about to write
     ],
   })
