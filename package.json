@@ -21,7 +21,7 @@
   "dependencies": {
     "npm-package-arg": "^10.0.0",
     "promzard": "^0.3.0",
-    "read": "^1.0.7",
+    "read": "^2.0.0",
     "read-package-json": "^6.0.0",
     "semver": "^7.3.5",
     "validate-npm-package-license": "^3.0.4",
