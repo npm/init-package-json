@@ -20,7 +20,7 @@
   "description": "A node module to get your node module started",
   "dependencies": {
     "npm-package-arg": "^10.0.0",
-    "promzard": "^0.3.0",
+    "promzard": "^1.0.0",
     "read": "^1.0.7",
     "read-package-json": "^6.0.0",
     "semver": "^7.3.5",
