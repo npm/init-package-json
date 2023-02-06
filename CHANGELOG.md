@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.0.0](https://github.com/npm/init-package-json/compare/v4.0.1...v5.0.0) (2023-02-06)
+
+### ⚠️ BREAKING CHANGES
+
+* this module is now Promise only and no longer accepts a callback parameter
+
+### Features
+
+* [`8b919b7`](https://github.com/npm/init-package-json/commit/8b919b74149af92f4cad76c96080a254a72b7018) refactor (@lukekarrys)
+
 ## [4.0.1](https://github.com/npm/init-package-json/compare/v4.0.0...v4.0.1) (2022-10-18)
 
 ### Dependencies
