@@ -19,6 +19,7 @@
   "license": "ISC",
   "description": "A node module to get your node module started",
   "dependencies": {
+    "@npmcli/package-json": "^4.0.1",
     "npm-package-arg": "^11.0.0",
     "promzard": "^1.0.0",
     "read": "^2.0.0",
