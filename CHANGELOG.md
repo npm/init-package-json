@@ -1,5 +1,20 @@
 # Changelog
 
+## [6.0.0](https://github.com/npm/init-package-json/compare/v5.0.0...v6.0.0) (2023-08-15)
+
+### ⚠️ BREAKING CHANGES
+
+* support for node 14 has been removed
+
+### Bug Fixes
+
+* [`97b1efe`](https://github.com/npm/init-package-json/commit/97b1efeccb6eac3d0669fcd5703ade57ec7fd148) [#235](https://github.com/npm/init-package-json/pull/235) drop node14 support (@lukekarrys)
+
+### Dependencies
+
+* [`9eccb04`](https://github.com/npm/init-package-json/commit/9eccb043c2993371013749a92702b6e4fcdd033d) [#233](https://github.com/npm/init-package-json/pull/233) bump read-package-json from 6.0.4 to 7.0.0
+* [`3024040`](https://github.com/npm/init-package-json/commit/3024040dec8c5f0215f9dea8652a28669e9d1c9f) [#234](https://github.com/npm/init-package-json/pull/234) bump npm-package-arg from 10.1.0 to 11.0.0
+
 ## [5.0.0](https://github.com/npm/init-package-json/compare/v4.0.1...v5.0.0) (2023-02-06)
 
 ### ⚠️ BREAKING CHANGES
