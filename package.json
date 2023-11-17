@@ -38,10 +38,6 @@
     "node": "^16.14.0 || >=18.0.0"
   },
   "tap": {
-    "statements": 95,
-    "branches": 78,
-    "lines": 94,
-    "jobs": 1,
     "test-ignore": "fixtures/",
     "nyc-arg": [
       "--exclude",
