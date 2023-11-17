@@ -50,6 +50,7 @@ const setup = async (t, file, {
 
   try {
     return {
+      tdir,
       data: stderr ? JSON.parse(stderr) : null,
       output: stdout,
     }
@@ -69,7 +70,9 @@ async function child ({ chdir } = {}) {
   }
 
   const output = await init(dir, getFixture(input), config && JSON.parse(config))
-  console.error(JSON.stringify(output))
+  if (output !== undefined) {
+    console.error(JSON.stringify(output))
+  }
 }
 
 module.exports = { setup, child, isChild, getFixture }
