@@ -28,7 +28,7 @@
     "validate-npm-package-name": "^5.0.0"
   },
   "devDependencies": {
-    "@npmcli/config": "^7.0.0",
+    "@npmcli/config": "^8.0.2",
     "@npmcli/eslint-config": "^4.0.0",
     "@npmcli/template-oss": "4.21.1",
     "tap": "^16.0.1"
