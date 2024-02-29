@@ -1,5 +1,29 @@
 # Changelog
 
+## [6.0.1](https://github.com/npm/init-package-json/compare/v6.0.0...v6.0.1) (2024-02-29)
+
+### Bug Fixes
+
+* [`4eca245`](https://github.com/npm/init-package-json/commit/4eca245b0bb4576b9174efe4c1fbd5f3ddf68b73) [#263](https://github.com/npm/init-package-json/pull/263) move to @npmcli/package-json (@wraithgar)
+
+### Dependencies
+
+* [`85b4452`](https://github.com/npm/init-package-json/commit/85b4452f8f3c2060ff24ef8b8ff8a72dcae5a1ee) [#274](https://github.com/npm/init-package-json/pull/274) bump read from 2.1.0 to 3.0.1 (#274)
+* [`16f1fcc`](https://github.com/npm/init-package-json/commit/16f1fcc94a8b5ac3f145ec4f2e6f5a340f46c54c) [#263](https://github.com/npm/init-package-json/pull/263) remove read-package-json
+* [`5c0da7f`](https://github.com/npm/init-package-json/commit/5c0da7f5d83c78d7b688b45f236daedb4a083e38) [#263](https://github.com/npm/init-package-json/pull/263) add new dependency `@npmcli/package-json@4.0.1`
+
+### Chores
+
+* [`0a12bd7`](https://github.com/npm/init-package-json/commit/0a12bd77e8c1206f6427ecca6d46fb20357b1b70) [#273](https://github.com/npm/init-package-json/pull/273) bump @npmcli/config from 7.2.0 to 8.2.0 (#273) (@dependabot[bot])
+* [`b216462`](https://github.com/npm/init-package-json/commit/b216462566c6a0ab627905a94d1c3ff21fc1121e) [#267](https://github.com/npm/init-package-json/pull/267) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`36addd8`](https://github.com/npm/init-package-json/commit/36addd83b459288dae6330bb0493572f1c676944) [#267](https://github.com/npm/init-package-json/pull/267) bump @npmcli/template-oss from 4.21.1 to 4.21.3 (@dependabot[bot])
+* [`38ee762`](https://github.com/npm/init-package-json/commit/38ee762cc43577d25b512c1a7b185a17fd9c9582) [#261](https://github.com/npm/init-package-json/pull/261) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`642e170`](https://github.com/npm/init-package-json/commit/642e170a7060969c479005e47e7017c58f1691d7) [#261](https://github.com/npm/init-package-json/pull/261) bump @npmcli/template-oss from 4.19.0 to 4.21.1 (@dependabot[bot])
+* [`4a9b5f1`](https://github.com/npm/init-package-json/commit/4a9b5f1832bd2709e6e432f019f1a964b7159910) [#239](https://github.com/npm/init-package-json/pull/239) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`0920582`](https://github.com/npm/init-package-json/commit/0920582b941e39a71bf3b89f3abe28d6533779a9) [#239](https://github.com/npm/init-package-json/pull/239) bump @npmcli/template-oss from 4.18.1 to 4.19.0 (@dependabot[bot])
+* [`9e08db3`](https://github.com/npm/init-package-json/commit/9e08db33cd8705c0e1b1c0a44a4e000d8ffa4f94) [#238](https://github.com/npm/init-package-json/pull/238) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`4a274d1`](https://github.com/npm/init-package-json/commit/4a274d1b17be42a091b39672301b9e7b08e81395) [#238](https://github.com/npm/init-package-json/pull/238) bump @npmcli/template-oss from 4.18.0 to 4.18.1 (@dependabot[bot])
+
 ## [6.0.0](https://github.com/npm/init-package-json/compare/v5.0.0...v6.0.0) (2023-08-15)
 
 ### ⚠️ BREAKING CHANGES
