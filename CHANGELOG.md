@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.0.2](https://github.com/npm/init-package-json/compare/v6.0.1...v6.0.2) (2024-03-01)
+
+### Dependencies
+
+* [`4e2383e`](https://github.com/npm/init-package-json/commit/4e2383e5bb6648a6f3511fd5e6d788f0a260412b) [#275](https://github.com/npm/init-package-json/pull/275) bump @npmcli/package-json from 4.0.1 to 5.0.0 (#275) (@dependabot[bot])
+
 ## [6.0.1](https://github.com/npm/init-package-json/compare/v6.0.0...v6.0.1) (2024-02-29)
 
 ### Bug Fixes
