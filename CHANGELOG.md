@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.3](https://github.com/npm/init-package-json/compare/v6.0.2...v6.0.3) (2024-04-21)
+
+### Chores
+
+* [`a6fb904`](https://github.com/npm/init-package-json/commit/a6fb90422cdb730395f8da5bb5134168e22b1461) [#282](https://github.com/npm/init-package-json/pull/282) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`2421ced`](https://github.com/npm/init-package-json/commit/2421ced93d851b93239da66703855a4320ee9769) [#282](https://github.com/npm/init-package-json/pull/282) bump @npmcli/template-oss from 4.21.3 to 4.21.4 (@dependabot[bot])
+
 ## [6.0.2](https://github.com/npm/init-package-json/compare/v6.0.1...v6.0.2) (2024-03-01)
 
 ### Dependencies
