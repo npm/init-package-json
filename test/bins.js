@@ -21,7 +21,6 @@ t.test('auto bin population', async (t) => {
       '',
       '',
       'yes',
-      'dummy',
     ],
   })
   t.same(data.bin, { 'auto-bin-test': 'bin/run.js' },

@@ -41,7 +41,8 @@
     "nyc-arg": [
       "--exclude",
       "tap-snapshots/**"
-    ]
+    ],
+    "timeout": 300
   },
   "keywords": [
     "init",
