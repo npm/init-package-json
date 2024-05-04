@@ -1,5 +1,18 @@
 # Changelog
 
+## [6.0.3](https://github.com/npm/init-package-json/compare/v6.0.2...v6.0.3) (2024-05-04)
+
+### Bug Fixes
+
+* [`3d50080`](https://github.com/npm/init-package-json/commit/3d500804f644efa8743f16bd4d101f749c3d433b) [#284](https://github.com/npm/init-package-json/pull/284) linting: no-console (@lukekarrys)
+
+### Chores
+
+* [`c089e8c`](https://github.com/npm/init-package-json/commit/c089e8cfa73347b736c7ae238cec0ec0de5d3056) [#284](https://github.com/npm/init-package-json/pull/284) increase tap timeout (@lukekarrys)
+* [`d9deb25`](https://github.com/npm/init-package-json/commit/d9deb25ac3628763ab31c3f9f5fcbc961e1d808a) [#284](https://github.com/npm/init-package-json/pull/284) bump @npmcli/template-oss to 4.22.0 (@lukekarrys)
+* [`5b599d7`](https://github.com/npm/init-package-json/commit/5b599d701c45ec2ac0c2c208ddf1571296a437ee) [#284](https://github.com/npm/init-package-json/pull/284) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`2421ced`](https://github.com/npm/init-package-json/commit/2421ced93d851b93239da66703855a4320ee9769) [#282](https://github.com/npm/init-package-json/pull/282) bump @npmcli/template-oss from 4.21.3 to 4.21.4 (@dependabot[bot])
+
 ## [6.0.2](https://github.com/npm/init-package-json/compare/v6.0.1...v6.0.2) (2024-03-01)
 
 ### Dependencies
