@@ -66,20 +66,11 @@ t.test('license', async (t) => {
   t.has(data, wanted)
 })
 
-t.test('parse repository from git config', async (t) => {
-  await updateContent(`
-[core]
-    repositoryformatversion = 0
-    filemode = true
-    bare = false
-    logallrefupdates = true
-[remote "origin"]
+t.test('parse repository from git config with HTTPS URL', async (t) => {
+  await updateContent(`[remote "origin"]
     url = https://github.com/npm/init-package-json.git
     fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "main"]
-    remote = origin
-    merge = refs/heads/main
-`)
+  `)
 
   const { data } = await setup(t, __filename, {
     inputs: [
@@ -104,8 +95,140 @@ t.test('parse repository from git config', async (t) => {
     author: '',
     repository: {
       type: 'git',
-      url: `git+https://github.com/npm/init-package-json.git`,
+      url: 'git+https://github.com/npm/init-package-json.git',
     },
+    main: 'index.js',
+  }
+
+  t.has(data, wanted)
+})
+
+t.test('parse repository from git config with SSH URL', async (t) => {
+  await updateContent(`[remote "origin"]
+    url = git@github.com:npm/init-package-json.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+  `)
+
+  const { data } = await setup(t, __filename, {
+    inputs: [
+      'the-name', // package name
+      '', // version
+      '', // description
+      '', // entry point
+      '', // test
+      '', // git repo
+      '', // keywords
+      '', // author
+      '', // license
+      'yes', // about to write
+    ],
+  })
+
+  const wanted = {
+    name: 'the-name',
+    version: '1.0.0',
+    description: '',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    author: '',
+    repository: {
+      type: 'git',
+      url: 'git+https://github.com/npm/init-package-json.git',
+    },
+    main: 'index.js',
+  }
+
+  t.has(data, wanted)
+})
+
+t.test('handle missing remote origin section', async (t) => {
+  await updateContent(`[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+  `)
+
+  const { data } = await setup(t, __filename, {
+    inputs: [
+      'the-name', // package name
+      '', // version
+      '', // description
+      '', // entry point
+      '', // test
+      '', // git repo
+      '', // keywords
+      '', // author
+      '', // license
+      'yes', // about to write
+    ],
+  })
+
+  const wanted = {
+    name: 'the-name',
+    version: '1.0.0',
+    description: '',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    author: '',
+    main: 'index.js',
+  }
+
+  t.has(data, wanted)
+})
+
+t.test('handle invalid git config format', async (t) => {
+  await updateContent(`invalid config content`)
+
+  const { data } = await setup(t, __filename, {
+    inputs: [
+      'the-name', // package name
+      '', // version
+      '', // description
+      '', // entry point
+      '', // test
+      '', // git repo
+      '', // keywords
+      '', // author
+      '', // license
+      'yes', // about to write
+    ],
+  })
+
+  const wanted = {
+    name: 'the-name',
+    version: '1.0.0',
+    description: '',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    author: '',
+    main: 'index.js',
+  }
+
+  t.has(data, wanted)
+})
+
+t.test('handle non-existent config file gracefully', async (t) => {
+  // Do not create the config file to simulate non-existent file
+
+  const { data } = await setup(t, __filename, {
+    inputs: [
+      'the-name', // package name
+      '', // version
+      '', // description
+      '', // entry point
+      '', // test
+      '', // git repo
+      '', // keywords
+      '', // author
+      '', // license
+      'yes', // about to write
+    ],
+  })
+
+  const wanted = {
+    name: 'the-name',
+    version: '1.0.0',
+    description: '',
+    scripts: { test: 'echo "Error: no test specified" && exit 1' },
+    author: '',
     main: 'index.js',
   }
 
