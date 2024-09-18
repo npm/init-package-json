@@ -26,6 +26,7 @@ t.test('the basics', async (t) => {
     main: 'main.js',
     config: { foo: 'bar' },
     package: {},
+    type: 'commonjs',
   })
 })
 
@@ -47,6 +48,7 @@ t.test('no config', async (t) => {
     main: 'main.js',
     config: {},
     package: {},
+    type: 'commonjs',
   })
 })
 
