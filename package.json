@@ -26,7 +26,7 @@
     "read": "^3.0.1",
     "semver": "^7.3.5",
     "validate-npm-package-license": "^3.0.4",
-    "validate-npm-package-name": "^5.0.0"
+    "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
     "@npmcli/config": "^8.2.0",
