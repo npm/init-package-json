@@ -1,5 +1,21 @@
 # Changelog
 
+## [7.0.0](https://github.com/npm/init-package-json/compare/v6.0.3...v7.0.0) (2024-09-26)
+### ⚠️ BREAKING CHANGES
+* `init-package-json` now supports node `^18.17.0 || >=20.5.0`
+### Bug Fixes
+* [`2c78533`](https://github.com/npm/init-package-json/commit/2c785335c783231adaeb5d00f5323c7f24fdc0ba) [#305](https://github.com/npm/init-package-json/pull/305) align to npm 10 node engine range (@reggi)
+### Dependencies
+* [`732dc0d`](https://github.com/npm/init-package-json/commit/732dc0d4d73bf9278e2ffe5ee672f1853a76bfd2) [#305](https://github.com/npm/init-package-json/pull/305) `validate-npm-package-name@6.0.0`
+* [`bdb71d9`](https://github.com/npm/init-package-json/commit/bdb71d9bb45806c3550fefa6688438a38f3b7b18) [#305](https://github.com/npm/init-package-json/pull/305) `read@4.0.0`
+* [`2a6ebd2`](https://github.com/npm/init-package-json/commit/2a6ebd2ec94bb0ade18c8b22e9f4e869b0460b8b) [#305](https://github.com/npm/init-package-json/pull/305) `promzard@2.0.0`
+* [`45bb12a`](https://github.com/npm/init-package-json/commit/45bb12a76030e8c246e9f6d22a120c50bb52774a) [#305](https://github.com/npm/init-package-json/pull/305) `npm-package-arg@12.0.0`
+### Chores
+* [`c8deea5`](https://github.com/npm/init-package-json/commit/c8deea51d429511976cdae5e296f24559068aacd) [#305](https://github.com/npm/init-package-json/pull/305) run template-oss-apply (@reggi)
+* [`e61c6c7`](https://github.com/npm/init-package-json/commit/e61c6c7f998918098342eecd79c426b56fc992bf) [#299](https://github.com/npm/init-package-json/pull/299) bump @npmcli/eslint-config from 4.0.5 to 5.0.0 (@dependabot[bot])
+* [`c3f2bfe`](https://github.com/npm/init-package-json/commit/c3f2bfef507b9d4413d59d399b827c6e0aa7e44f) [#300](https://github.com/npm/init-package-json/pull/300) postinstall for dependabot template-oss PR (@hashtagchris)
+* [`9569c5d`](https://github.com/npm/init-package-json/commit/9569c5d9bc26a9e3f75ef47c7ef17ae638f00fc9) [#300](https://github.com/npm/init-package-json/pull/300) bump @npmcli/template-oss from 4.23.1 to 4.23.3 (@dependabot[bot])
+
 ## [6.0.3](https://github.com/npm/init-package-json/compare/v6.0.2...v6.0.3) (2024-05-04)
 
 ### Bug Fixes
