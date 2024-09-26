@@ -21,7 +21,7 @@
   "description": "A node module to get your node module started",
   "dependencies": {
     "@npmcli/package-json": "^5.0.0",
-    "npm-package-arg": "^11.0.0",
+    "npm-package-arg": "^12.0.0",
     "promzard": "^1.0.0",
     "read": "^3.0.1",
     "semver": "^7.3.5",
