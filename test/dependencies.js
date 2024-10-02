@@ -42,6 +42,7 @@ t.test('read in dependencies and dev deps', async (t) => {
     main: 'index.js',
     keywords: [],
     license: 'ISC',
+    type: 'commonjs',
     dependencies: {
       tap: '*',
     },

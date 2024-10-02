@@ -101,6 +101,7 @@ const EXPECTED = {
   keywords: [],
   author: 'npmbot <n@p.m> (http://npm.im/)',
   license: 'WTFPL',
+  type: 'commonjs',
 }
 
 t.test('npm configuration values pulled from environment', async t => {
