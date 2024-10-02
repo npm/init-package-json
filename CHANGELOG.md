@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.0.1](https://github.com/npm/init-package-json/compare/v7.0.0...v7.0.1) (2024-10-02)
+### Dependencies
+* [`90305f1`](https://github.com/npm/init-package-json/commit/90305f11cfa78b8e40f990da46eaeda852d2454b) [#308](https://github.com/npm/init-package-json/pull/308) bump `@npmcli/package-json@6.0.0`
+
 ## [7.0.0](https://github.com/npm/init-package-json/compare/v6.0.3...v7.0.0) (2024-09-26)
 ### ⚠️ BREAKING CHANGES
 * `init-package-json` now supports node `^18.17.0 || >=20.5.0`
