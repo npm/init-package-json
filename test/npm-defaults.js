@@ -100,6 +100,7 @@ const EXPECTED = {
   },
   keywords: [],
   author: 'npmbot <n@p.m> (http://npm.im/)',
+  type: 'commonjs',
   license: 'WTFPL',
 }
 

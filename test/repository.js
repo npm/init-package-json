@@ -7,18 +7,7 @@ if (isChild()) {
 
 t.test('license', async (t) => {
   const { data } = await setup(t, __filename, {
-    inputs: [
-      'the-name', // package name
-      '', // version
-      '', // description
-      '', // entry point
-      '', // test
-      'npm/cli', // git repo
-      '', // keywords
-      '', // author
-      '', // license
-      'yes', // about to write
-    ],
+    inputs: { name: 'the-name', repo: 'npm/cli' },
   })
 
   const wanted = {
@@ -32,6 +21,7 @@ t.test('license', async (t) => {
       url: 'git+https://github.com/npm/cli.git',
     },
     main: 'index.js',
+    type: 'commonjs',
   }
   t.has(data, wanted)
 })

@@ -7,19 +7,12 @@ if (isChild()) {
 
 t.test('uppercase', async (t) => {
   const { data } = await setup(t, __filename, {
-    inputs: [
-      [/name: \(.*\) $/, 'THE-NAME'],
-      [/name: \(.*\) $/, 'the-name'],
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      'yes',
-    ],
+    inputs: {
+      name: [
+        [/name: \(.*\) $/, 'THE-NAME'],
+        [/name: \(.*\) $/, 'the-name'],
+      ],
+    },
   })
 
   const EXPECT = {

@@ -18,6 +18,8 @@ const setup = async (t, file, {
     tdir = path.join(tdir, dir)
   }
 
+  inputs = Array.isArray(inputs) ? inputs : validInput(inputs)
+
   const args = [file, CHILD, tdir, inputFile]
   if (config) {
     args.push(JSON.stringify(config))
@@ -73,6 +75,29 @@ async function child ({ chdir } = {}) {
   if (output !== undefined) {
     console.error(JSON.stringify(output))
   }
+}
+
+const standardValue = (value) => {
+  if (Array.isArray(value) && Array.isArray(value[0])) {
+    return value
+  }
+  return [value]
+}
+
+const validInput = (obj) => {
+  return [
+    ...standardValue(obj.name || ''),
+    ...standardValue(obj.version || ''),
+    ...standardValue(obj.description || ''),
+    ...standardValue(obj.entry || ''),
+    ...standardValue(obj.test || ''),
+    ...standardValue(obj.repo || ''),
+    ...standardValue(obj.keywords || ''),
+    ...standardValue(obj.author || ''),
+    ...standardValue(obj.licence || ''),
+    ...standardValue(obj.type || ''),
+    ...standardValue(obj.ok || 'yes'),
+  ]
 }
 
 module.exports = { setup, child, isChild, getFixture }

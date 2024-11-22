@@ -7,19 +7,12 @@ if (isChild()) {
 
 t.test('single space', async t => {
   const { data } = await setup(t, __filename, {
-    inputs: [
-      [/name: \(.*\) $/, 'the name'], // invalid package name
-      [/name: \(.*\) $/, 'the-name'], // package name
-      '', // version
-      '', // description
-      '', // entry point
-      '', // test
-      '', // git repo
-      '', // keywords
-      '', // author
-      '', // license
-      'yes', // about to write
-    ],
+    inputs: {
+      name: [
+        [/name: \(.*\) $/, 'the name'], // invalid package name
+        [/name: \(.*\) $/, 'the-name'], // package name
+      ],
+    },
   })
 
   const wanted = {
@@ -36,19 +29,12 @@ t.test('single space', async t => {
 
 t.test('multiple spaces', async t => {
   const { data } = await setup(t, __filename, {
-    inputs: [
-      [/name: \(.*\) $/, 'the name should be this'], // invalid package name
-      [/name: \(.*\) $/, 'the-name-should-be-this'], // package name
-      '', // version
-      '', // description
-      '', // entry point
-      '', // test
-      '', // git repo
-      '', // keywords
-      '', // author
-      '', // license
-      'yes', // about to write
-    ],
+    inputs: {
+      name: [
+        [/name: \(.*\) $/, 'the name should be this'], // invalid package name
+        [/name: \(.*\) $/, 'the-name-should-be-this'], // package name
+      ],
+    },
   })
 
   const wanted = {
