@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.0.2](https://github.com/npm/init-package-json/compare/v7.0.1...v7.0.2) (2024-12-02)
+### Bug Fixes
+* [`c96ad4a`](https://github.com/npm/init-package-json/commit/c96ad4a74a03a33875a9f3472ac320f5a1177dc3) [#315](https://github.com/npm/init-package-json/pull/315) default git repository value if exist (#315) (@milaninfy)
+
 ## [7.0.1](https://github.com/npm/init-package-json/compare/v7.0.0...v7.0.1) (2024-10-02)
 ### Dependencies
 * [`90305f1`](https://github.com/npm/init-package-json/commit/90305f11cfa78b8e40f990da46eaeda852d2454b) [#308](https://github.com/npm/init-package-json/pull/308) bump `@npmcli/package-json@6.0.0`
