@@ -7,19 +7,13 @@ if (isChild()) {
 
 t.test('license', async (t) => {
   const { data } = await setup(t, __filename, {
-    inputs: [
-      'the-name', // package name
-      '', // version
-      '', // description
-      '', // entry point
-      '', // test
-      '', // git repo
-      '', // keywords
-      '', // author
-      [/license: \(.*\) $/, 'Apache'], // invalid license
-      [/license: \(.*\) $/, 'Apache-2.0'], // license
-      'yes', // about to write
-    ],
+    inputs: {
+      name: 'the-name',
+      licence: [
+        [/license: \(.*\) $/, 'Apache'], // invalid license
+        [/license: \(.*\) $/, 'Apache-2.0'], // license
+      ],
+    },
   })
 
   const wanted = {

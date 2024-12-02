@@ -36,6 +36,7 @@ t.test('read in dependencies and dev deps', async (t) => {
   t.same(data, {
     name: 'tap-testdir-dependencies-read-in-dependencies-and-dev-deps',
     version: '1.0.0',
+    type: 'commonjs',
     description: '',
     author: '',
     scripts: { test: 'mocha' },
