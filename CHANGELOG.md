@@ -1,5 +1,17 @@
 # Changelog
 
+## [8.0.0](https://github.com/npm/init-package-json/compare/v7.0.2...v8.0.0) (2024-12-02)
+### ⚠️ BREAKING CHANGES
+* this module is now compatible with the following node versions: ^20.17.0 || >=22.9.0
+* adds a new `type` prompt and changes the sort order of created packages
+### Features
+* [`5eeea50`](https://github.com/npm/init-package-json/commit/5eeea50f70412968d8e16b390da43cab5de02954) [#313](https://github.com/npm/init-package-json/pull/313) adds type, sorting (#313) (@reggi)
+### Bug Fixes
+* [`f4c1430`](https://github.com/npm/init-package-json/commit/f4c1430696ecc00db3bd0864b1682f94fe3ee6a0) update node engines to ^20.17.0 || >=22.9.0 (#318) (@wraithgar)
+### Chores
+* [`47339ef`](https://github.com/npm/init-package-json/commit/47339efdc51cdadd36d0c6abeff178f97acbfa10) [#311](https://github.com/npm/init-package-json/pull/311) bump @npmcli/config from 8.3.4 to 9.0.0 (#311) (@dependabot[bot])
+* [`2ccbf30`](https://github.com/npm/init-package-json/commit/2ccbf30b19f7ed95b161a7ff85de40cd3d5d150a) [#310](https://github.com/npm/init-package-json/pull/310) bump @npmcli/template-oss from 4.23.3 to 4.23.4 (#310) (@dependabot[bot], @npm-cli-bot)
+
 ## [7.0.2](https://github.com/npm/init-package-json/compare/v7.0.1...v7.0.2) (2024-12-02)
 ### Bug Fixes
 * [`c96ad4a`](https://github.com/npm/init-package-json/commit/c96ad4a74a03a33875a9f3472ac320f5a1177dc3) [#315](https://github.com/npm/init-package-json/pull/315) default git repository value if exist (#315) (@milaninfy)
