@@ -1,5 +1,9 @@
 # Changelog
 
+## [8.1.1](https://github.com/npm/init-package-json/compare/v8.1.0...v8.1.1) (2025-04-23)
+### Bug Fixes
+* [`52b3766`](https://github.com/npm/init-package-json/commit/52b37660aa87e67261a6e63ab3b6f6d32c358a99) [#324](https://github.com/npm/init-package-json/pull/324) make private only effective when set to true, handle existing packages (#324) (@owlstronaut)
+
 ## [8.1.0](https://github.com/npm/init-package-json/compare/v8.0.0...v8.1.0) (2025-04-23)
 ### Features
 * [`78b2cd0`](https://github.com/npm/init-package-json/commit/78b2cd07d692004b41daf140662f15b8f9c7d49c) [#322](https://github.com/npm/init-package-json/pull/322) adds init-private option to config (#322) (@owlstronaut)
