@@ -18,7 +18,7 @@ t.test('private field with init-private false', async (t) => {
     config: { yes: 'yes', 'init-private': false },
   })
 
-  t.equal(data.private, false, 'private field set to false in yes mode')
+  t.equal(data.private, undefined, 'private field set to false is undefined')
 })
 
 t.test('private field without init-private', async (t) => {
