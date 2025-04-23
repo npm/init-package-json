@@ -1,5 +1,11 @@
 # Changelog
 
+## [8.1.0](https://github.com/npm/init-package-json/compare/v8.0.0...v8.1.0) (2025-04-23)
+### Features
+* [`78b2cd0`](https://github.com/npm/init-package-json/commit/78b2cd07d692004b41daf140662f15b8f9c7d49c) [#322](https://github.com/npm/init-package-json/pull/322) adds init-private option to config (#322) (@owlstronaut)
+### Chores
+* [`0578b8b`](https://github.com/npm/init-package-json/commit/0578b8ba703b92204e312c73d8aef9b93ef25e6a) [#320](https://github.com/npm/init-package-json/pull/320) bump @npmcli/config from 9.0.0 to 10.0.0 (#320) (@dependabot[bot])
+
 ## [8.0.0](https://github.com/npm/init-package-json/compare/v7.0.2...v8.0.0) (2024-12-02)
 ### ⚠️ BREAKING CHANGES
 * this module is now compatible with the following node versions: ^20.17.0 || >=22.9.0
