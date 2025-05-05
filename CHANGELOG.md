@@ -1,5 +1,11 @@
 # Changelog
 
+## [8.2.0](https://github.com/npm/init-package-json/compare/v8.1.1...v8.2.0) (2025-05-05)
+### Features
+* [`8f6d95d`](https://github.com/npm/init-package-json/commit/8f6d95d539a0e5334a2452869ab39738d50c2652) [#329](https://github.com/npm/init-package-json/pull/329) add new test packages (#329) (@wraithgar)
+### Bug Fixes
+* [`23c5eb9`](https://github.com/npm/init-package-json/commit/23c5eb9e5948f5888844c351a57f3d7f500b342f) [#327](https://github.com/npm/init-package-json/pull/327) Use the private value as long as it isn't undefined (#327) (@owlstronaut)
+
 ## [8.1.1](https://github.com/npm/init-package-json/compare/v8.1.0...v8.1.1) (2025-04-23)
 ### Bug Fixes
 * [`52b3766`](https://github.com/npm/init-package-json/commit/52b37660aa87e67261a6e63ab3b6f6d32c358a99) [#324](https://github.com/npm/init-package-json/pull/324) make private only effective when set to true, handle existing packages (#324) (@owlstronaut)
