@@ -1,5 +1,9 @@
 # Changelog
 
+## [8.2.1](https://github.com/npm/init-package-json/compare/v8.2.0...v8.2.1) (2025-05-14)
+### Bug Fixes
+* [`d2da53b`](https://github.com/npm/init-package-json/commit/d2da53b5ccff49d008cb138db5c56bcb02ca7b77) [#330](https://github.com/npm/init-package-json/pull/330) private option uses the real config to determine default (#330) (@owlstronaut)
+
 ## [8.2.0](https://github.com/npm/init-package-json/compare/v8.1.1...v8.2.0) (2025-05-05)
 ### Features
 * [`8f6d95d`](https://github.com/npm/init-package-json/commit/8f6d95d539a0e5334a2452869ab39738d50c2652) [#329](https://github.com/npm/init-package-json/pull/329) add new test packages (#329) (@wraithgar)
