@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.2](https://github.com/npm/init-package-json/compare/v8.2.1...v8.2.2) (2025-08-29)
+### Dependencies
+* [`f480504`](https://github.com/npm/init-package-json/commit/f48050495ae5fd484f331240549fc1d3ae895a35) [#332](https://github.com/npm/init-package-json/pull/332) `@npmcli/package-json@7.0.0`
+* [`2662a02`](https://github.com/npm/init-package-json/commit/2662a02db712c595e795345eb5d7eb6f4ca23f99) [#332](https://github.com/npm/init-package-json/pull/332) `validate-npm-package-name@6.0.2`
+* [`160c315`](https://github.com/npm/init-package-json/commit/160c31528f94c622506235021e99dd17834ff20e) [#332](https://github.com/npm/init-package-json/pull/332) `semver@7.7.2`
+* [`adbd5cb`](https://github.com/npm/init-package-json/commit/adbd5cbfc54116c0f214f559b7ed31195966d81b) [#332](https://github.com/npm/init-package-json/pull/332) `npm-package-arg@13.0.0`
+
 ## [8.2.1](https://github.com/npm/init-package-json/compare/v8.2.0...v8.2.1) (2025-05-14)
 ### Bug Fixes
 * [`d2da53b`](https://github.com/npm/init-package-json/commit/d2da53b5ccff49d008cb138db5c56bcb02ca7b77) [#330](https://github.com/npm/init-package-json/pull/330) private option uses the real config to determine default (#330) (@owlstronaut)
