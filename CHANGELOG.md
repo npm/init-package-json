@@ -1,5 +1,9 @@
 # Changelog
 
+## [8.2.3](https://github.com/npm/init-package-json/compare/v8.2.2...v8.2.3) (2025-11-17)
+### Dependencies
+* [`f03c37b`](https://github.com/npm/init-package-json/commit/f03c37bfbed27c2a538c094de92c027675bd429a) [#336](https://github.com/npm/init-package-json/pull/336) `validate-npm-package-name@7.0.0` (#336)
+
 ## [8.2.2](https://github.com/npm/init-package-json/compare/v8.2.1...v8.2.2) (2025-08-29)
 ### Dependencies
 * [`f480504`](https://github.com/npm/init-package-json/commit/f48050495ae5fd484f331240549fc1d3ae895a35) [#332](https://github.com/npm/init-package-json/pull/332) `@npmcli/package-json@7.0.0`
