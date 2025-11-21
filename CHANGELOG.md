@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.4](https://github.com/npm/init-package-json/compare/v8.2.3...v8.2.4) (2025-11-21)
+### Dependencies
+* [`f2df0e2`](https://github.com/npm/init-package-json/commit/f2df0e264dcbb959cc94bc01a790ee57aab8ed0a) [#338](https://github.com/npm/init-package-json/pull/338) bump promzard from 2.0.0 to 3.0.1 (#338) (@dependabot[bot])
+* [`02e2313`](https://github.com/npm/init-package-json/commit/02e2313486e69d426259de2e0bafea1fc3e91866) [#341](https://github.com/npm/init-package-json/pull/341) bump read from 4.1.0 to 5.0.1 (#341) (@dependabot[bot])
+### Chores
+* [`291136b`](https://github.com/npm/init-package-json/commit/291136b4d4cc60bc138c99dc7ced4f4213ff7aa9) [#340](https://github.com/npm/init-package-json/pull/340) bump @npmcli/eslint-config from 5.1.0 to 6.0.1 (#340) (@dependabot[bot])
+
 ## [8.2.3](https://github.com/npm/init-package-json/compare/v8.2.2...v8.2.3) (2025-11-17)
 ### Dependencies
 * [`f03c37b`](https://github.com/npm/init-package-json/commit/f03c37bfbed27c2a538c094de92c027675bd429a) [#336](https://github.com/npm/init-package-json/pull/336) `validate-npm-package-name@7.0.0` (#336)
