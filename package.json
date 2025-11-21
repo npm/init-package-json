@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@npmcli/config": "^10.0.0",
-    "@npmcli/eslint-config": "^5.0.0",
+    "@npmcli/eslint-config": "^6.0.1",
     "@npmcli/template-oss": "4.23.4",
     "tap": "^16.0.1"
   },
