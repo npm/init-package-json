@@ -22,7 +22,7 @@
   "dependencies": {
     "@npmcli/package-json": "^7.0.0",
     "npm-package-arg": "^13.0.0",
-    "promzard": "^2.0.0",
+    "promzard": "^3.0.1",
     "read": "^5.0.1",
     "semver": "^7.7.2",
     "validate-npm-package-license": "^3.0.4",
