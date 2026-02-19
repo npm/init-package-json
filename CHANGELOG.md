@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.5](https://github.com/npm/init-package-json/compare/v8.2.4...v8.2.5) (2026-02-19)
+### Bug Fixes
+* [`94effe9`](https://github.com/npm/init-package-json/commit/94effe91d2f0dbc8c8b970025f303e3440a7b016) update license validation code (#345) (@wraithgar)
+### Chores
+* [`803e95d`](https://github.com/npm/init-package-json/commit/803e95d9d2ef16d389ac0562856a554b68448010) [#346](https://github.com/npm/init-package-json/pull/346) trigger release process (#346) (@wraithgar)
+* [`81d2b3c`](https://github.com/npm/init-package-json/commit/81d2b3c6495cb6b58d27a5db6e9e6e75a823fe29) [#343](https://github.com/npm/init-package-json/pull/343) bump @npmcli/template-oss from 4.23.4 to 4.29.0 (#343) (@dependabot[bot], @npm-cli-bot, @owlstronaut)
+
 ## [8.2.4](https://github.com/npm/init-package-json/compare/v8.2.3...v8.2.4) (2025-11-21)
 ### Dependencies
 * [`f2df0e2`](https://github.com/npm/init-package-json/commit/f2df0e264dcbb959cc94bc01a790ee57aab8ed0a) [#338](https://github.com/npm/init-package-json/pull/338) bump promzard from 2.0.0 to 3.0.1 (#338) (@dependabot[bot])

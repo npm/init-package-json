@@ -1,6 +1,6 @@
 {
   "name": "init-package-json",
-  "version": "8.2.4",
+  "version": "8.2.5",
   "main": "lib/init-package-json.js",
   "scripts": {
     "test": "tap",
