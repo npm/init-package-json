@@ -25,7 +25,6 @@
     "promzard": "^3.0.1",
     "read": "^5.0.1",
     "semver": "^7.7.2",
-    "validate-npm-package-license": "^3.0.4",
     "validate-npm-package-name": "^7.0.0"
   },
   "devDependencies": {
