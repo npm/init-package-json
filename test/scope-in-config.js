@@ -14,7 +14,6 @@ t.test('--yes with scope', async (t) => {
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
     main: 'index.js',
     keywords: [],
-    license: 'ISC',
   }
 
   const { data } = await setup(t, __filename, {
