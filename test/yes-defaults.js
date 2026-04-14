@@ -14,7 +14,6 @@ t.test('--yes defaults', async (t) => {
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
     main: 'index.js',
     keywords: [],
-    license: 'ISC',
   }
 
   const { data } = await setup(t, __filename, {
@@ -22,4 +21,5 @@ t.test('--yes defaults', async (t) => {
   })
 
   t.has(data, EXPECT, 'used the default data')
+  t.equal(data.license, undefined, 'license is omitted by default')
 })
