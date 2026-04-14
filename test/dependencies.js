@@ -28,7 +28,6 @@ t.test('existing dependencies', async (t) => {
     version: '1.0.0',
     type: 'commonjs',
     description: '',
-    author: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
     main: 'index.js',
     keywords: [],

@@ -22,7 +22,6 @@ t.test('license', async (t) => {
     description: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
     license: 'Apache-2.0',
-    author: '',
     main: 'index.js',
   }
   t.has(data, wanted)
