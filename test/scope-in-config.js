@@ -10,7 +10,6 @@ t.test('--yes with scope', async (t) => {
     name: '@scoped/tap-testdir-scope-in-config---yes-with-scope',
     version: '1.0.0',
     description: '',
-    author: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
     main: 'index.js',
     keywords: [],

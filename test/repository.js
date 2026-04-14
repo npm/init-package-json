@@ -15,7 +15,6 @@ t.test('license', async (t) => {
     version: '1.0.0',
     description: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
-    author: '',
     repository: {
       type: 'git',
       url: 'git+https://github.com/npm/cli.git',

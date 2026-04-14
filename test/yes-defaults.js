@@ -10,7 +10,6 @@ t.test('--yes defaults', async (t) => {
     name: 'tap-testdir-yes-defaults---yes-defaults',
     version: '1.0.0',
     description: '',
-    author: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
     main: 'index.js',
     keywords: [],
@@ -21,5 +20,6 @@ t.test('--yes defaults', async (t) => {
   })
 
   t.has(data, EXPECT, 'used the default data')
+  t.equal(data.author, undefined, 'author is omitted by default')
   t.equal(data.license, undefined, 'license is omitted by default')
 })

@@ -20,7 +20,6 @@ t.test('single space', async t => {
     version: '1.0.0',
     description: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
-    author: '',
     main: 'index.js',
   }
   t.has(data, wanted)
@@ -41,7 +40,6 @@ t.test('multiple spaces', async t => {
     version: '1.0.0',
     description: '',
     scripts: { test: 'echo "Error: no test specified" && exit 1' },
-    author: '',
     main: 'index.js',
   }
   t.has(data, wanted)
