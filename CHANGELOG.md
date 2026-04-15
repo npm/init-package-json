@@ -1,5 +1,19 @@
 # Changelog
 
+## [9.0.0](https://github.com/npm/init-package-json/compare/v8.2.5...v9.0.0) (2026-04-15)
+### ⚠️ BREAKING CHANGES
+* The author prompt will now be shown even if an author is already specified in the existing package.json. If the user leaves the prompt blank, the author field will be omitted from the resulting package.json instead of being set to an empty string.
+* existing packages in `node_modules` are no longer used to try to pre-populate dependencies and devDependencies
+* The license field is no longer included by default when running `npm init` or `npm init --yes`. If you want to include a license, you can either set it in your npm config (`npm set init-license=MIT`) or provide it interactively when running `npm init`.
+### Features
+* [`0ab701a`](https://github.com/npm/init-package-json/commit/0ab701a318c0957fa346678c0a4a17096e8ba2c9) [#352](https://github.com/npm/init-package-json/pull/352) make author prompt even when already specified (@owlstronaut)
+* [`6e34dd8`](https://github.com/npm/init-package-json/commit/6e34dd83da370e849235c52da887770e72b362e6) [#350](https://github.com/npm/init-package-json/pull/350) omit license field by default when initializing package.json (@owlstronaut)
+### Bug Fixes
+* [`cddad4f`](https://github.com/npm/init-package-json/commit/cddad4fe4ddc5b712793d078c6d3dac1d8427ed1) [#349](https://github.com/npm/init-package-json/pull/349) stop auto populating dependencies (#349) (@wraithgar)
+### Chores
+* [`cc57229`](https://github.com/npm/init-package-json/commit/cc57229da15d75c7bfa9ae62a2910500f5867101) [#350](https://github.com/npm/init-package-json/pull/350) template-oss-apply (@owlstronaut)
+* [`e885190`](https://github.com/npm/init-package-json/commit/e88519058a51ba5c35acb151f86f26bcb7d5330a) [#348](https://github.com/npm/init-package-json/pull/348) bump @npmcli/template-oss from 4.29.0 to 4.30.0 (#348) (@dependabot[bot], @npm-cli-bot)
+
 ## [8.2.5](https://github.com/npm/init-package-json/compare/v8.2.4...v8.2.5) (2026-02-19)
 ### Bug Fixes
 * [`94effe9`](https://github.com/npm/init-package-json/commit/94effe91d2f0dbc8c8b970025f303e3440a7b016) update license validation code (#345) (@wraithgar)
