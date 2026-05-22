@@ -1,5 +1,32 @@
 # Changelog
 
+## [9.0.0](https://github.com/npm/init-package-json/compare/v8.2.5...v9.0.0) (2026-05-22)
+### ⚠️ BREAKING CHANGES
+* `init-package-json` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
+* template-oss-apply
+* The author prompt will now be shown even if an author is already specified in the existing package.json. If the user leaves the prompt blank, the author field will be omitted from the resulting package.json instead of being set to an empty string.
+* existing packages in `node_modules` are no longer used to try to pre-populate dependencies and devDependencies
+* The license field is no longer included by default when running `npm init` or `npm init --yes`. If you want to include a license, you can either set it in your npm config (`npm set init-license=MIT`) or provide it interactively when running `npm init`.
+### Features
+* [`042e1c4`](https://github.com/npm/init-package-json/commit/042e1c43d45a25cf453b5185fb04faab60e78a70) [#359](https://github.com/npm/init-package-json/pull/359) bump to new node engine range (@owlstronaut)
+* [`965f605`](https://github.com/npm/init-package-json/commit/965f60549a1995c8b095612717f5b00c97b25e53) [#359](https://github.com/npm/init-package-json/pull/359) template-oss-apply (@owlstronaut)
+* [`0ab701a`](https://github.com/npm/init-package-json/commit/0ab701a318c0957fa346678c0a4a17096e8ba2c9) [#352](https://github.com/npm/init-package-json/pull/352) make author prompt even when already specified (@owlstronaut)
+* [`6e34dd8`](https://github.com/npm/init-package-json/commit/6e34dd83da370e849235c52da887770e72b362e6) [#350](https://github.com/npm/init-package-json/pull/350) omit license field by default when initializing package.json (@owlstronaut)
+### Bug Fixes
+* [`cddad4f`](https://github.com/npm/init-package-json/commit/cddad4fe4ddc5b712793d078c6d3dac1d8427ed1) [#349](https://github.com/npm/init-package-json/pull/349) stop auto populating dependencies (#349) (@wraithgar)
+### Dependencies
+* [`2959f9c`](https://github.com/npm/init-package-json/commit/2959f9c3f1a75bf04fff6297b1890cbe99b68f26) [#359](https://github.com/npm/init-package-json/pull/359) `validate-npm-package-name@8.0.0`
+* [`96a5bb8`](https://github.com/npm/init-package-json/commit/96a5bb8af8846754e161ec67680c569209ac6fd7) [#359](https://github.com/npm/init-package-json/pull/359) `read@6.0.0`
+* [`fefbeee`](https://github.com/npm/init-package-json/commit/fefbeee13260cea33385c30ce36bc92ec9d2fa45) [#359](https://github.com/npm/init-package-json/pull/359) `promzard@4.0.0`
+* [`6114288`](https://github.com/npm/init-package-json/commit/6114288ba2367f89711627943c33b8d632ca3023) [#359](https://github.com/npm/init-package-json/pull/359) `npm-package-arg@14.0.0`
+* [`da6fbc1`](https://github.com/npm/init-package-json/commit/da6fbc1cf181082a50d7edbfa9edb48be977a1fe) [#359](https://github.com/npm/init-package-json/pull/359) `@npmcli/package-json@8.0.0`
+### Chores
+* [`43073db`](https://github.com/npm/init-package-json/commit/43073dbe9b359c0599315649962b02e60e634f88) [#359](https://github.com/npm/init-package-json/pull/359) `@npmcli/eslint-config@7.0.0` (@owlstronaut)
+* [`0f70db1`](https://github.com/npm/init-package-json/commit/0f70db1d5daebc7b60fa0f775ec9857ac1fe7c55) [#359](https://github.com/npm/init-package-json/pull/359) template-oss-apply (@owlstronaut)
+* [`7dfdb1a`](https://github.com/npm/init-package-json/commit/7dfdb1a823ee82d8db85ed22814e17b98e365b06) [#359](https://github.com/npm/init-package-json/pull/359) bumping @npmcli/template-oss from 4.30.0 to 5.1.0 (@owlstronaut)
+* [`cc57229`](https://github.com/npm/init-package-json/commit/cc57229da15d75c7bfa9ae62a2910500f5867101) [#350](https://github.com/npm/init-package-json/pull/350) template-oss-apply (@owlstronaut)
+* [`e885190`](https://github.com/npm/init-package-json/commit/e88519058a51ba5c35acb151f86f26bcb7d5330a) [#348](https://github.com/npm/init-package-json/pull/348) bump @npmcli/template-oss from 4.29.0 to 4.30.0 (#348) (@dependabot[bot], @npm-cli-bot)
+
 ## [8.2.5](https://github.com/npm/init-package-json/compare/v8.2.4...v8.2.5) (2026-02-19)
 ### Bug Fixes
 * [`94effe9`](https://github.com/npm/init-package-json/commit/94effe91d2f0dbc8c8b970025f303e3440a7b016) update license validation code (#345) (@wraithgar)
