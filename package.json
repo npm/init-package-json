@@ -23,7 +23,7 @@
     "@npmcli/package-json": "^8.0.0",
     "npm-package-arg": "^14.0.0",
     "promzard": "^4.0.0",
-    "read": "^5.0.1",
+    "read": "^6.0.0",
     "semver": "^7.7.2",
     "validate-npm-package-name": "^7.0.0"
   },
