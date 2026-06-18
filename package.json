@@ -30,7 +30,7 @@
   "devDependencies": {
     "@npmcli/config": "^10.0.0",
     "@npmcli/eslint-config": "^7.0.0",
-    "@npmcli/template-oss": "5.1.0",
+    "@npmcli/template-oss": "5.1.1",
     "tap": "^16.0.1"
   },
   "engines": {
@@ -60,7 +60,7 @@
   ],
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "5.1.0",
+    "version": "5.1.1",
     "publish": true,
     "updateNpm": false
   }
