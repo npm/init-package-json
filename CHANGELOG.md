@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.0.1](https://github.com/npm/init-package-json/compare/v9.0.0...v9.0.1) (2026-11-17)
+### Dependencies
+* [`3d7ccba`](https://github.com/npm/init-package-json/commit/3d7ccba9f204e9c9e81869ab53a5fc8c51e97048) [#365](https://github.com/npm/init-package-json/pull/365) bump @npmcli/package-json from 8.0.0 to 8.0.1 (#365) (@jeffkl, @Copilot)
+### Chores
+* [`70ef43b`](https://github.com/npm/init-package-json/commit/70ef43b305cc32fc9eadbf12e75ae6c3a2780208) [#360](https://github.com/npm/init-package-json/pull/360) bump @npmcli/template-oss from 5.1.0 to 5.1.1 (#360) (@dependabot[bot], @npm-cli-bot)
+
 ## [9.0.0](https://github.com/npm/init-package-json/compare/v8.2.5...v9.0.0) (2026-05-22)
 ### ⚠️ BREAKING CHANGES
 * `init-package-json` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
